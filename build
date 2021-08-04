@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+shopt -s globstar
+
+for md in **/*.md; do
+  dir=$(dirname $md)
+  echo "building ${md}"
+  pandoc -s "${md}" -o "${dir}"/index.html --template assets/template.html \
+    2>/dev/null
+done
+
