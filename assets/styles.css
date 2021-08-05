@@ -3,9 +3,9 @@
 }
 
 html, body {
-  margin: 0;
-  border: 0;
-  padding: 0;
+  margin: 5;
+  border: 5;
+  padding: 5;
   background-color: #F3EBEE;
 }
 
