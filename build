@@ -5,7 +5,14 @@ shopt -s globstar
 for md in **/*.md; do
   dir=$(dirname $md)
   echo "building ${md}"
+
+  assets_folder="assets"
+
+  if [[ ${dir} != "."  ]]; then
+    assets_folder="../assets"
+  fi
+
   pandoc -s "${md}" -o "${dir}"/index.html --template assets/template.html \
-    2>/dev/null
+    --variable styles_file=${assets_folder}/styles.css --metadata title="${md}"
 done
 
