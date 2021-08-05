@@ -4,6 +4,7 @@ shopt -s globstar
 
 for md in **/*.md; do
   dir=$(dirname $md)
+  filename=$(basename $md)
   echo "building ${md}"
 
   assets_folder="assets"
@@ -13,6 +14,6 @@ for md in **/*.md; do
   fi
 
   pandoc -s "${md}" -o "${dir}"/index.html --template assets/template.html \
-    --variable styles_file=${assets_folder}/styles.css --metadata title="${md}"
+    --variable styles_file=${assets_folder}/styles.css --metadata title="${filename}"
 done
 
