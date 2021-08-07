@@ -14,6 +14,6 @@ for md in **/*.md; do
   fi
 
   pandoc -s "${md}" -o "${dir}"/index.html --template assets/template.html \
-    --variable styles_file="${assets_folder}/styles.css"
+    --variable assets_folder="${assets_folder}"
 done
 
