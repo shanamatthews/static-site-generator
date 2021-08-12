@@ -2,6 +2,8 @@
 title:  'About'
 author: 'Shana'
 keywords: [nothing, nothingness]
---- 
+---
 
-Here's the about me page
+Hi! I'm Shana.
+
+![](/images/headshot.jpeg)
