@@ -4,9 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href=${assets_folder}/styles.css>
+  <link rel="stylesheet" href=${assets_folder}/css/styles.css>
   <title>${title}</title>
-  <link rel="shortcut icon" type="image/jpg" href="${assets_folder}/frog_favicon.ico" />
+  <link rel="shortcut icon" type="image/jpg"
+  href="${assets_folder}/favicons/frog_favicon.ico" />
 </head>
 
 <body>
@@ -16,6 +17,7 @@
       <ul>
         <li><a href="https://poly.work/shanamatthews">About</a></li>
         <li><a href="/contact/">Contact</a></li>
+        <li><a href="/posts/">Posts</a></li>
       </ul>
     </nav>
   </header>
@@ -23,6 +25,7 @@
   <h1 class="title">${title}</h1>
   $endif$
   ${body}
+  ${latest_post}
 </body>
 <footer>
   <p>Powered by <a href="https://github.com/shanamatthews/custom-static-website">Shana's custom static site

@@ -1,7 +1,7 @@
 ---
-title:  'Home'
+title:  'Posts'
 author: 'Shana'
 keywords: [nothing, nothingness]
 ---
 
-## Latest post:
+Here are all my posts.
