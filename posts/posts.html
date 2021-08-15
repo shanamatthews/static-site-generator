@@ -4,19 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-$for(author-meta)$
-  <meta name="author" content="$author-meta$" />
-$endfor$
-  $if(date-meta)$
-    <meta name="date" content="$date-meta$" />
-  $endif$
-$if(keywords)$
-  <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$" />
-$endif$
-  <link rel="stylesheet" href=$assets-folder$/css/styles.css>
-  <title>${title}</title>
+  <meta name="author" content="Shana" />
+    <meta name="keywords" content="nothing, nothingness" />
+  <link rel="stylesheet" href=../assets/css/styles.css>
+  <title>Posts</title>
   <link rel="shortcut icon" type="image/jpg"
-  href="${assets-folder}/favicons/frog_favicon.ico" />
+  href="../assets/favicons/frog_favicon.ico" />
 </head>
 
 <body>
@@ -30,19 +23,9 @@ $endif$
       </ul>
     </nav>
   </header>
-  $if(title)$
-  <h1 class="title">${title}</h1>
-  $endif$
-  $if(date-meta)$
-  <p class="date">$date-meta$</p>
-  $endif$
-  ${body}
-  $if(latest-post)$
-  ${latest-post}
-  $endif$
-$for(author-meta)$
-  <meta name="author" content="$author-meta$" />
-$endfor$
+    <h1 class="title">Posts</h1>
+      <p>Here are all my posts.</p>
+    <meta name="author" content="Shana" />
 </body>
 <footer>
   <p>Powered by <a href="https://github.com/shanamatthews/custom-static-website">Shana's custom static site
