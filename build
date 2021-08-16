@@ -6,8 +6,8 @@ latest_post_text="$(pandoc $(ls -m posts/*.md | cut -d "," -f 1))"
 # echo "${latest_post_text}"
 
 declare -a latest_posts
-latest_posts=("test1" "test2" "test3")
-echo ${latest_posts[*]}
+declare -a test
+latest_posts=("--variable latest-posts=this" "--variable latest-posts=is" "--variable latest-posts=test")
 
 for md in **/*.md; do
   dir=$(dirname $md)
@@ -38,8 +38,7 @@ for md in **/*.md; do
   if [[ ${md} == "posts/index.md" ]]; then
     pandoc -s "${md}" -o "${dir}"/index.html --template assets/template.html \
       --variable assets-folder="${assets_folder}" \
-      --variable latest-posts="hi"  \
-      --variable latest-posts="there"
+      ${latest_posts[*]} 
     continue
   fi
 
