@@ -5,6 +5,10 @@ shopt -s globstar
 latest_post_text="$(pandoc $(ls -m posts/*.md | cut -d "," -f 1))"
 # echo "${latest_post_text}"
 
+declare -a latest_posts
+latest_posts=("test1" "test2" "test3")
+echo ${latest_posts[*]}
+
 for md in **/*.md; do
   dir=$(dirname $md)
   filename=$(basename $md)
@@ -23,9 +27,19 @@ for md in **/*.md; do
   fi
 
   # build homepage
-  if [[ ${md} == "home.md" ]]; then
+  if [[ ${md} == "index.md" ]]; then
     pandoc -s "${md}" -o "${dir}"/index.html --template assets/template.html \
-      --variable assets-folder="${assets_folder}" --variable latest-post="${latest_post_text}"
+      --variable assets-folder="${assets_folder}" \
+      --variable post-preview="${latest_post_text}"
+    continue
+  fi
+
+  # build posts page
+  if [[ ${md} == "posts/index.md" ]]; then
+    pandoc -s "${md}" -o "${dir}"/index.html --template assets/template.html \
+      --variable assets-folder="${assets_folder}" \
+      --variable latest-posts="hi"  \
+      --variable latest-posts="there"
     continue
   fi
 

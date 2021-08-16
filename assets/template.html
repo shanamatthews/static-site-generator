@@ -37,12 +37,12 @@ $endif$
   <p class="date">$date-meta$</p>
   $endif$
   ${body}
-  $if(latest-post)$
-  ${latest-post}
+  $if(post-preview)$
+  ${post-preview}
   $endif$
-$for(author-meta)$
-  <meta name="author" content="$author-meta$" />
-$endfor$
+  $for(latest-posts)$
+  <p class="post-title">$latest-posts$</p>
+  $endfor$
 </body>
 <footer>
   <p>Powered by <a href="https://github.com/shanamatthews/custom-static-website">Shana's custom static site
