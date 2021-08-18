@@ -2,7 +2,7 @@
 
 shopt -s globstar
 
-latest_post="$(ls -mU posts/*.md | cut -d "," -f 1)"
+latest_post="$(ls -1 -U posts/*.md | head -n1)"
 latest_post_link=$(basename ${latest_post%*.md})
 latest_post_text="$(pandoc ${latest_post} --template assets/post-preview-template.html --variable post-link=$latest_post_link)"
 
