@@ -4,19 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-$for(author-meta)$
-  <meta name="author" content="$author-meta$" />
-$endfor$
-  $if(date-meta)$
-    <meta name="date" content="$date-meta$" />
-  $endif$
-$if(keywords)$
-  <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$" />
-$endif$
-  <link rel="stylesheet" href=$assets-folder$/css/styles.css>
-  <title>${title}</title>
+  <meta name="author" content="Shana" />
+      <meta name="date" content="2021-08-15" />
+    <meta name="keywords" content="nothing, nothingness" />
+  <link rel="stylesheet" href=../assets/css/styles.css>
+  <title>Hi I am a post</title>
   <link rel="shortcut icon" type="image/jpg"
-  href="${assets-folder}/favicons/frog_favicon.ico" />
+  href="../assets/favicons/frog_favicon.ico" />
 </head>
 
 <body>
@@ -30,24 +24,10 @@ $endif$
       </ul>
     </nav>
   </header>
-  $if(title)$
-  <h1 class="title">$title$</h1>
-  $endif$
-  $if(date-meta)$
-  <p class="date">$date-meta$</p>
-  $endif$
-  ${body}
-  $if(post-preview)$
-  ${post-preview}
-  $endif$
-  $if(latest-posts)$
-  <ul class="post-list">
-  $for(latest-posts)$
-  <li><a href=/$latest-posts$ >$latest-posts$</a></li>
-  $endfor$
-  </ul>
-  $endif$
-</body>
+    <h1 class="title">Hi I am a post</h1>
+      <p class="date">2021-08-15</p>
+    <p>Test</p>
+    </body>
 <footer>
   <p>Powered by <a href="https://github.com/shanamatthews/custom-static-website">Shana's custom static site
       generator</a> (aka literally just one Bash script)</insert>
