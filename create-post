@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+date=$(exec date -u +%Y-%m-%d)
+filename=posts/$date.md
+
+header="---
+title: $1
+author: Shana
+keywords: [no, nothing]
+date: ${date}
+---
+"
+
+echo "$header" >> $filename

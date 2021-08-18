@@ -2,13 +2,12 @@
 
 shopt -s globstar
 
-latest_post_text="$(pandoc $(ls -m posts/*.md | cut -d "," -f 1))"
-# echo "${latest_post_text}"
+latest_post_text="$(pandoc $(ls -mr posts/*.md | cut -d "," -f 2))"
 
 declare -a latest_posts
-latest_posts=
 for post in $(ls -r posts/2021*.md); do
-  latest_posts+=("--variable latest-posts=${post%*.md}.html")
+  post_name=$(basename $post)
+  latest_posts+=("--variable latest-posts=${post_name%*.md}")
 done
 
 for md in **/*.md; do
