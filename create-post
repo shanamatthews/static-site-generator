@@ -4,7 +4,7 @@ date=$(exec date -u +%Y-%m-%d)
 filename=posts/$date.md
 
 header="---
-title: $1
+title: $@
 author: Shana
 keywords: [no, nothing]
 date: ${date}
@@ -12,3 +12,4 @@ date: ${date}
 "
 
 echo "$header" >> $filename
+vim $filename
