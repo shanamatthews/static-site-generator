@@ -233,3 +233,8 @@ footer {
   font-size: 12px;
   text-align: center;
 }
+
+.homepage-post-title a {
+  text-decoration: none;
+}
+
