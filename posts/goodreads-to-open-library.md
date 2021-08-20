@@ -24,3 +24,8 @@ I ultimately landed on [Open Library](https://openlibrary.org/) as my book log p
 
 I was able to import all my Goodreads data into Open Library and I'm hopeful that me or another contributor can eventually add the functionality I need to their APIs so that my book backgrounds project can live on!
 
+#### Update!!
+
+Open Library totally *does* support doing what I want with [their REST API](https://openlibrary.org/developers/api). It's not explicitly documented, but you can easily grab your reading lists as json, e.g. <https://openlibrary.org/people/stinkerelly/books/currently-reading>.
+
+More coming soon as I rework my "spine generator" (AGAIN) using the Open Library REST API 🥳
