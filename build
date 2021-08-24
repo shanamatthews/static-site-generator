@@ -7,7 +7,7 @@ latest_post_link=$(basename ${latest_post%*.md})
 latest_post_text="$(pandoc ${latest_post} --template assets/post-preview-template.html --variable post-link=$latest_post_link)"
 
 declare -a latest_posts
-for post in $(ls -U posts/*.md); do
+for post in $(ls -t posts/*.md); do
   if [[ $post != "posts/index.md" ]]; then
     echo $post
     post_name=$(basename $post)
