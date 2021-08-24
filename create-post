@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
 
 date=$(exec date -u +%Y-%m-%d)
-filename=posts/$date.md
+filename="posts/"
+
+for w in "${@,,}"; do
+  filename+="${w}-" 
+done
+
+filename="${filename%*-}.md"
 
 header="---
 title: $@
