@@ -11,12 +11,9 @@ And since I got that looking significantly prettier, I also added some futzing a
 
 ![](https://th.bing.com/th/id/R.c6035299ef0df15a0356b91e0d55ec0c?rik=EIOQ0VqsRvfb8g&riu=http%3a%2f%2fgifrific.com%2fwp-content%2fuploads%2f2013%2f02%2fBrian-Fantana-60-of-the-time-it-works-every-time-Anchorman.gif&ehk=NjgSTKLFpW36bCEB5bwAnd9nbE21IfzsmCIKa4UcSK8%3d&risl=&pid=ImgRaw&r=0)
 
-I'm not going to embed this one because it costs me money every time it loads, but look at this nice image and feel free to [check it out on ObservableHQ](https://observablehq.com/@shanamatthews/spine-generator-open-library-edition).
+I'm not going to embed this one because it costs me money every time it loads, but look at this nice image!
 
-![](/../images/spine-generator-again.jpg)
-
-(Also, please be patient while it loads... I had to load in the cover images sequentially with a 1s delay to not upset the Open Library API because I did not want to fuck with caching 🤢)
-
+![](/../images/books.svg)
 
 ## A lil more detail if ur curious
 
@@ -44,6 +41,10 @@ We've got data!
 After this was working, I really thought that it was going to be super easy to integrate this with my existing visualization. And, it was! Except I got a little to excited that this was finally 🎉 **working**✨ the way I had wanted from the very beginning and decided to start changing everything. Classic.
 
 If you check out the [ObservableHQ notebook](https://observablehq.com/@shanamatthews/spine-generator-open-library-edition) you can read more about what I did, including switching to the Google Cloud Vision API to get better colors out of the cover images and restructuring the whole data flow to minimize the number of times I'd have to call the GCP API (💸💸💸) as well as the Open Library covers API since it was getting a little mad at me.
+
+### NOTE!
+
+Sorry, I made the notebook private for now, since I can't figure out a great way to share this without sharing my GCP key.
 
 LOVE IT! THANKS FOR READING? Feedback? Send it to me on [Twitter \@shanamatthews](https://twitter.com/shanamatthews)! Complaints? Criticism? Go ahead and direct as follows: `>/dev/null 2>&1`
 
