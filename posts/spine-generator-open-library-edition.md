@@ -11,12 +11,12 @@ And since I got that looking significantly prettier, I also added some futzing a
 
 ![](https://th.bing.com/th/id/R.c6035299ef0df15a0356b91e0d55ec0c?rik=EIOQ0VqsRvfb8g&riu=http%3a%2f%2fgifrific.com%2fwp-content%2fuploads%2f2013%2f02%2fBrian-Fantana-60-of-the-time-it-works-every-time-Anchorman.gif&ehk=NjgSTKLFpW36bCEB5bwAnd9nbE21IfzsmCIKa4UcSK8%3d&risl=&pid=ImgRaw&r=0)
 
-[Check it out!](https://observablehq.com/@shanamatthews/spine-generator-open-library-edition)
+I'm not going to embed this one because it costs me money every time it loads, but look at this nice image and feel free to [check it out on ObservableHQ](https://observablehq.com/@shanamatthews/spine-generator-open-library-edition).
 
-(Please be patient while it loads... I had to load in the cover images sequentially with a 1s delay to not upset the Open Library API because I did not want to fuck with caching 🤢)
+![](/../images/spine-generator-again.jpg)
 
-<iframe width="100%" height="453" frameborder="0"
-  src="https://observablehq.com/embed/@shanamatthews/spine-generator-open-library-edition?cells=books%2Cviewof+NUMBOOKS"></iframe>
+(Also, please be patient while it loads... I had to load in the cover images sequentially with a 1s delay to not upset the Open Library API because I did not want to fuck with caching 🤢)
+
 
 ## A lil more detail if ur curious
 
