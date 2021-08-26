@@ -11,8 +11,9 @@ And since I got that looking significantly prettier, I also added some futzing a
 
 ![](https://th.bing.com/th/id/R.c6035299ef0df15a0356b91e0d55ec0c?rik=EIOQ0VqsRvfb8g&riu=http%3a%2f%2fgifrific.com%2fwp-content%2fuploads%2f2013%2f02%2fBrian-Fantana-60-of-the-time-it-works-every-time-Anchorman.gif&ehk=NjgSTKLFpW36bCEB5bwAnd9nbE21IfzsmCIKa4UcSK8%3d&risl=&pid=ImgRaw&r=0)
 
-<iframe width="100%" height="446" frameborder="0"
-  src="https://observablehq.com/embed/@shanamatthews/spine-generator-open-library-edition?cells=books%2Cviewof+NUMBOOKS"></iframe>
+![](../images/books.svg)
+
+Check it out [here](https://observablehq.com/@shanamatthews/spine-generator-open-library-edition)!
 
 ## A lil more detail if ur curious
 
