@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Shana" />
-    <meta name="keywords" content="nothing, nothingness" />
+    <meta name="keywords" content="reading" />
   <link rel="stylesheet" href=../assets/css/styles.css>
-  <title>Contact</title>
+  <title>What am I reading?</title>
   <link rel="shortcut icon" type="image/jpg"
   href="../assets/favicons/frog_favicon.ico" />
 </head>
@@ -24,9 +24,19 @@
       </ul>
     </nav>
   </header>
-    <h1 class="title">Contact</h1>
-      <p>I don’t tweet a lot, but you can find me on Twitter at <a href="https://twitter.com/shanamatthews">@shanamatthews</a>.</p>
-      <p>Or, shoot me an email at <a href="mailto:shana@shana.codes">shana@shana.codes</a>.</p>
+    <h1 class="title">What am I reading?</h1>
+      <div id="observablehq-52db9cf9">
+      <div class="observablehq-books2">
+
+      </div>
+      </div>
+      <script type="module">
+        import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+        import define from "https://api.observablehq.com/@shanamatthews/spine-generator-open-library-edition.js?v=3";
+        (new Runtime).module(define, name => {
+          if (name === "books2") return Inspector.into("#observablehq-52db9cf9 .observablehq-books2")();
+        });
+      </script>
     </body>
 <footer>
   <p>Powered by <a href="https://github.com/shanamatthews/static-site-generator">Shana's custom static site
