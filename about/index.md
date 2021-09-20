@@ -1,5 +1,5 @@
 ---
-title:  'Contact'
+title:  'About'
 author: 'Shana'
 keywords: [nothing, nothingness]
 ---
