@@ -2,7 +2,7 @@
 title:  'Static site generator with `pandoc` + Bash'
 author: 'Shana'
 keywords: [nothing, nothingness]
-date: 2021-08-15
+date: 2022-03-15
 ---
 
 I've been playing around with POSIX  and Bash scripting lately. I've always really enjoyed shell scripting - I find it really intuitive and simple to get things done.

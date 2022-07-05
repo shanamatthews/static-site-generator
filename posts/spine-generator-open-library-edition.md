@@ -2,7 +2,7 @@
 title: Spine Generator Open Library Edition
 author: Shana
 keywords: [no, nothing]
-date: 2021-08-24
+date: 2022-05-24
 ---
 
 Even though my Spine Generator project is done to death, I was inspired to redo the data/backend ONE MORE TIME when I realized I actually was able to grab my book data from Open Library via API. While I was working on it, I also decided to give it a little facelift by grabbing cover colors from the [get-image-colors library](https://github.com/colorjs/get-image-colors) rather than [Vibrant.js](https://jariz.github.io/vibrant.js/) which was just not designed to do what I wanted it to.

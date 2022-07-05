@@ -26,22 +26,13 @@
   </header>
     <h1 class="title">Home</h1>
       <h2 id="latest-post">Latest post:</h2>
-    <h3 class="homepage-post-title"><a href=/posts/workout-tracker.html>Workout Tracker</a></h3>
-    <p class="date">2022-07-05</p>
-    <p>I really enjoy working out, especially lifting weights and following a set program. One program I’d been trying for a while is called <a href="https://www.bretcontreras.store/products/strong-curves">Strong Curves</a> (cheesy, I know… they all have crap names). The program is highly structured, with each day following the same format, alternating between different exercises that all fit into certain categories.</p>
-    <p>I’d been wanting to write my own workout tracker for a while and the format of this program lends itself well to writing a templated workout tracker.</p>
-    <p>During my experiments with creating a “Zoom bookshelf” with D3, I found that I really enjoyed writing Javascript in <a href="https://observablehq.com/">Observable</a>. Observable makes Javascript feel a lot more sane to my strictly-typed brain and basically creates UX for you, as long as you were okay with the default components provided.</p>
-    <p>I’m always okay with default UX if it means I don’t have to write it, so I went ahead and created my own <a href="https://observablehq.com/collection/@shanamatthews/strong-curves-tracker">project on Observable</a>.</p>
-    <p>Right now this project is set up to store workout data in JSON and save as a GitHub Gist on my own account. I’ve actually embedded a GitHub key (with only Gist permissions!!) in the project, which is a VERY BAD IDEA™️ , please don’t do this at home.</p>
-    <p>It’s been super convenient for my development, but it means if you want to use this project for yourself, you’ll need to:</p>
-    <ul>
-    <li>Have a GitHub account</li>
-    <li>Create a Gist named “A” (please don’t judge the process) with 3 files in it named “A”, “B”, and “C” (to correspond to workout days A, B, C)</li>
-    <li><a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">Create a GitHub personal access token</a> with Gist write access</li>
-    <li>Replace my Gist url (<code>gistUrl</code>) and GitHub token (<code>ghToken</code>) with your own. These variables can be found in the <a href="https://observablehq.com/@shanamatthews/strong-curves-tracker-scripts?collection=@shanamatthews/strong-curves-tracker">Tracker Scripts notebook</a></li>
-    </ul>
-    <p>I’ve since ported (most) of this workout tracker to Svelte in my quest to be able to suck less at frontend development 😇 But that’s a story for a different post.</p>
-    <p>Happy coding and go hit the gym!</p>
+    <h3 class="homepage-post-title"><a href=/posts/static-site-generator-with-bash.html>Static site generator with <code>pandoc</code> + Bash</a></h3>
+    <p class="date">2022-03-15</p>
+    <p>I’ve been playing around with POSIX and Bash scripting lately. I’ve always really enjoyed shell scripting - I find it really intuitive and simple to get things done.</p>
+    <p>I was inspired by a tangent a streamer (rwxrob) went off on lately about how you could easily set up a basic static site generator using <code>pandoc</code> and some bash scripting so I decided to do it!</p>
+    <p>This site is generated from markdown files which I pass through <code>pandoc</code> using templates, all coordinated by (what is currently) one Bash script.</p>
+    <p>In the past, I’ve set up sites using Jekyll and Hugo, but I hated how bloated they were for what I really needed. I didn’t want a fancy theme or interactivity or SEO, or… anything else. I also strongly prefer to be able to understand everything in my setup and how better to do that than to make it yourself?</p>
+    <p><a href="https://github.com/shanamatthews/static-site-generator">Check out the code here</a> or in my footer 😁</p>
     </body>
 <footer>
   <p>Powered by <a href="https://github.com/shanamatthews/static-site-generator">Shana's custom static site

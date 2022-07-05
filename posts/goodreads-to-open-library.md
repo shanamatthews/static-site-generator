@@ -2,19 +2,19 @@
 title: Switching from Goodreads to Open Library
 author: Shana
 keywords: [no, nothing]
-date: 2021-08-18
+date: 2022-04-18
 ---
 
 Sometime during the last year (what even is pandemic time) I was exploring D3.js for kicks. One of the projects I created was a "virtual bookshelf" that would pull the books I was currently reading or just finished from the Goodreads API and display them. My hope was to create something pretty (judge for yourself 🥲) that I could download regularly and use as a Zoom background.
 
-The project was a lot of fun ([check out the code](https://observablehq.com/@shanamatthews/spine-generator-v2) if you're curious) and was going pretty well. D3 was a lot of fun for someone who knew absolutely nothing about SVG and Canvas and not a ton about HTML and Javascript. 
+The project was a lot of fun ([check out the code](https://observablehq.com/@shanamatthews/spine-generator-v2) if you're curious) and was going pretty well. D3 was a lot of fun for someone who knew absolutely nothing about SVG and Canvas and not a ton about HTML and Javascript.
 
 <iframe width="100%" height="496" frameborder="0"
   src="https://observablehq.com/embed/@shanamatthews/spine-generator-v2?cells=books%2Cviewof+NUMBOOKS%2Cviewof+FONT"></iframe>
 
 ###### I might have missed the mark on "pretty".
 
-However, after taking a break from the project for a few weeks when life got busy, I came back to a totally broken project. Maybe not that surprising, it wasn't exactly robust code... But once I dug in, I realized that my calls to the Goodreads API weren't working anymore. My API key had expired during my time away from the project... weird. I'm not sure how quickly API keys normally expire, but no big deal, I'll just grab a new one! 
+However, after taking a break from the project for a few weeks when life got busy, I came back to a totally broken project. Maybe not that surprising, it wasn't exactly robust code... But once I dug in, I realized that my calls to the Goodreads API weren't working anymore. My API key had expired during my time away from the project... weird. I'm not sure how quickly API keys normally expire, but no big deal, I'll just grab a new one!
 
 No dice. Goodreads had decided to stop issuing new developer keys (and shut off any that hadn't been active in a few weeks) without any warning. I already wasn't a huge fan of Goodreads, since they're owned by Amazon, but this was the last straw for me. I was done with Goodreads. Next step - find a new place to log my book reading habit, preferably with functional APIs where I could grab that data.
 
