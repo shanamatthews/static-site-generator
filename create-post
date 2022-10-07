@@ -3,6 +3,7 @@
 date=$(exec date -u +%Y-%m-%d)
 filename="posts/"
 
+# this is broken for some reason :(
 for w in "${@,,}"; do
   filename+="${w}-" 
 done
