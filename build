@@ -2,18 +2,32 @@
 
 shopt -s globstar
 
-latest_post="$(ls -1 -t posts/*.md | head -n1)"
-latest_post_link=$(basename ${latest_post%*.md})
-latest_post_text="$(pandoc ${latest_post} --template assets/post-preview-template.html --variable post-link=$latest_post_link)"
-
-declare -a latest_posts
+declare -a unsorted_posts
 for post in $(ls -t posts/*.md); do
   if [[ $post != "posts/index.md" ]]; then
-    echo $post
+    post_date=$(sed -n 's/^date: //p' ${post})
     post_name=$(basename $post)
-    latest_posts+=("--variable latest-posts=${post_name%*.md}")
+    post_name="${post_date}_${post_name}"
+    unsorted_posts+=(${post_name})
   fi
 done
+
+declare -a sorted_posts
+IFS=$'\n' sorted_posts=($(sort -r <<< ${unsorted_posts[*]}))
+unset IFS
+
+declare -a latest_posts
+for post in ${sorted_posts[*]}; do
+  name_to_add="${post/*_/}"
+  name_to_add="${name_to_add%.md}"
+  echo ${name_to_add}
+  latest_posts+=("--variable latest-posts=${name_to_add%*.md}")
+done
+
+echo "${sorted_posts[0]}"
+latest_post="${sorted_posts[0]/*_/}"
+latest_post_text="$(pandoc posts/${latest_post} --template assets/post-preview-template.html --variable post-link=${latest_post%.md})"
+
 
 for md in **/*.md; do
   dir=$(dirname $md)
