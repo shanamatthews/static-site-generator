@@ -172,6 +172,48 @@
     <p>Here’s a summary table showing the differences between ad hoc
     profiling, continuous profiling, and transaction-based
     profiling.</p>
+    <table>
+    <colgroup>
+    <col style="width: 25%" />
+    <col style="width: 25%" />
+    <col style="width: 25%" />
+    <col style="width: 25%" />
+    </colgroup>
+    <thead>
+    <tr class="header">
+    <th></th>
+    <th>Ad hoc profiling</th>
+    <th>Continuous profiling</th>
+    <th>Transaction-based profiling</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+    <td>How is a profile created?</td>
+    <td>Manually</td>
+    <td>Automatically</td>
+    <td>Automatically</td>
+    </tr>
+    <tr class="even">
+    <td>When is a profile generated?</td>
+    <td>On demand</td>
+    <td>Always</td>
+    <td>While a transaction is happening</td>
+    </tr>
+    <tr class="odd">
+    <td>Requires instrumenting your code?</td>
+    <td>No code changes required</td>
+    <td>Yes</td>
+    <td>Sometimes, if automatic instrumentation isn’t available</td>
+    </tr>
+    <tr class="even">
+    <td>Environment best suited for</td>
+    <td>Development</td>
+    <td>Production</td>
+    <td>Production</td>
+    </tr>
+    </tbody>
+    </table>
     <h3 id="deterministic-vs.-sampling-profilers">Deterministic
     vs. sampling profilers</h3>
     <p>There are many ways to implement a profiling tool. CPU Profilers

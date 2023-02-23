@@ -68,6 +68,13 @@ Additionally, linking profiles to transactions provides a straightforward mental
 
 Here’s a summary table showing the differences between ad hoc profiling, continuous profiling, and transaction-based profiling.
 
+| |Ad hoc profiling|Continuous profiling|Transaction-based profiling|
+|-|-|-|-|
+|How is a profile created?|Manually|Automatically|Automatically|
+|When is a profile generated?|On demand|Always|While a transaction is happening|
+|Requires instrumenting your code?|No code changes required|Yes|Sometimes, if automatic instrumentation isn’t available|
+|Environment best suited for|Development|Production|Production|
+
 ### Deterministic vs. sampling profilers
 
 There are many ways to implement a profiling tool. CPU Profilers typically fall into two categories— deterministic and sampling — depending on how the profiles are collected.
