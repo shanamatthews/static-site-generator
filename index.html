@@ -20,79 +20,197 @@
         <li><a href="/about/">About</a></li>
         <!-- <li><a href="/contact/">Contact</a></li> -->
         <li><a href="/posts/">Posts</a></li>
+        <li><a href="/talks/">Talks</a></li>
         <li><a href="/reading/">What am I reading?</a></li>
       </ul>
     </nav>
   </header>
     <h1 class="title">Home</h1>
       <h2 id="latest-post">Latest post:</h2>
-    <h3 class="homepage-post-title"><a href=/posts/i-joined-sentry.html>I
-    joined Sentry!</a></h3>
-    <p class="date">2022-10-07</p>
-    <p>Hello crew! I have an exciting life update - I’ve joined <a
-    href="https://sentry.io/welcome/">Sentry</a> as a developer
-    advocate.</p>
-    <h2 id="what-is-sentry">What is Sentry</h2>
-    <p>Sentry is an open source application and performance monitoring tool
-    that can be used with just about any language or framework. It’s totally
-    free to use and open source (here’s <a
-    href="https://github.com/getsentry/sentry">the code</a> and we also
-    maintain a <a
-    href="https://github.com/getsentry/self-hosted">configuration repo</a>
-    that you can use to run your own self-hosted version of Sentry with
-    Docker.</p>
-    <p>Sentry was originally created for Django to report errors, but has
-    been expanded to work with most major development stacks. Right now,
-    Sentry is mostly used by mobile and web developers, but <a
-    href="https://docs.sentry.io/platforms/">supports just about
-    everything</a>, including native C/C++ and gaming tools like Unreal.</p>
-    <p>Sentry currently has about 250 employees, but it’s steadily
-    growing.</p>
-    <h2 id="why-sentry">Why Sentry</h2>
-    <p>While working at both Microsoft and Coinbase I had some eerily
-    similar experiences. Folks I met at events would be chatting with me and
-    say something along the lines of “You’re too nice to work at
-    <company-name>”. Even though I <em>think</em> they meant it as a
-    compliment (???), it would make me think. Obviously, “niceness” wasn’t
-    the problem; I knew lots of wonderfully kind people at both companies.
-    The problem was working at companies that hadn’t built a good reputation
-    in the developer community. Microsoft has come a long way since I first
-    started there, I stopped getting those comments around 2019 or so, right
-    around the time when their new developer advocacy program was gaining
-    traction (coincidence? I think not).</p>
-    <p>However, I’m really excited about the prospect of joining a company
-    that <em>already</em> has a good reputation in the developer community
-    and see how much further a great team of developer advocates can take
-    it. As of now, the developer advocacy team is only 3 people and we all
-    just started within the last few months, so there’s lots of room for
-    growth!</p>
-    <p>Another reason I’m excited about joining Sentry is the broad focus.
-    Since Sentry is very easy for developers to use and integrate with (as
-    opposed to the cloud!) and since Sentry supports so many tools, there’s
-    always an opportunity to learn and introduce Sentry to a new
-    audience.</p>
-    <h2 id="what-will-i-be-doing">What will I be doing?</h2>
-    <p>Since joining Sentry, the main thing I’ve been doing is helping prep
-    for our developer conference, <a
-    href="https://sentry.io/events/dex/">DEX</a>, which happened on
-    September 28th. I helped out by prepping internal speakers and creating
-    a Discord bot that polled attendees about their favorite developer tools
-    and showed a live updating data visualization of votes as they came in.
-    It was a fun challenge to get something working on a super short time
-    frame using tools I’m definitely not an expert at (looking at you D3).
-    I’m working on a blog post about creating that bot which should be
-    published in the next week or so.</p>
-    <p>What’s next after DEX? Great question! The team has just come
-    together, so we’re still setting our priorities, but we’ll definitely be
-    around. I’m hoping to get my feet wet in the Django community and brush
-    of my Python!</p>
-    <p>I’m also planning to start streaming some of my work, on <a
-    href="https://www.twitch.tv/shanacodes">Twitch</a> (catch my first
-    stream next week!). During October, the whole devrel team will be
-    streaming for Hacktober on Wednesdays at 10am Pacific. It’ll be
-    broadcast to our Sentry Youtube channel at <a
-    href="https://bit.ly/Hacktoberfest-2022">https://bit.ly/Hacktoberfest-2022</a>
-    and each of our personal Twitch channels.</p>
+    <h3 class="homepage-post-title"><a href=/posts/profiling-101-pt-2.html>Profiling
+    101 pt.2: Why profiling?</a></h3>
+    <p class="date">2023-02-23</p>
+    <h2 id="intro">Intro</h2>
+    <p>This is part 2 of a 3-part series on profiling. If you’re not yet
+    familiar with the what profiling is, check out the first part in our
+    series. Already know you want to profile your code, just don’t know
+    where to get started? Jump ahead to part 3.</p>
+    <ul>
+    <li><a href="../posts/profiling-101-pt-1.html">Part 1: What is
+    profiling?</a></li>
+    <li>Part 2: Why profiling? (You are here!)</li>
+    <li>Part 3: Profiling tools and how to use them (Coming soon!)</li>
+    </ul>
+    <p>By this point, you’re probably already convinced that good
+    performance is important for your app’s success. There are many tools
+    available for performance, but profiling in production with a modern
+    profiling tool is one of the easiest and most effective ways to get a
+    full understanding of your app’s performance.</p>
+    <p>While profiling tools have been helping developers fix slow code
+    since the 1970s, modern profiling tools are more sophisticated and
+    easier to use. They can run continuously for the lifetime of a service,
+    automatically create useful visualizations to show you slow code paths,
+    and they play nicely with other performance tools.</p>
+    <p>As with pt. 1, most examples we’ll use in this post are about
+    frontend and backend development, but profiling tools can help you
+    improve the performance of almost any type of code.</p>
+    <h2 id="why-profile-in-production">Why profile in production?</h2>
+    <p>Many languages have built-in profiling tools, like Python’s <a
+    href="https://docs.python.org/3.7/library/profile.html#module-cProfile">cProfile</a>
+    or Go’s <a href="https://pkg.go.dev/runtime/pprof">pprof</a>. These
+    tools are convenient and have been in use for decades, but they’re often
+    clunky to use, require an additional visualization tool, and are only
+    meant to be run locally on your machine.</p>
+    <h3 id="local-profiling-is-limited">Local profiling is limited</h3>
+    <p>Built-in profilers are are great for helping you get detailed
+    benchmarks for specific parts of your code to find hot spots, but
+    they’re not appropriate for finding performance problems in a
+    larger-scale system. Local profilers usually add a lot of overhead to
+    your code, &gt;200% is considered normal. If you care enough about your
+    code’s performance to profile it, you probably aren’t okay with making
+    it twice as slow. And as with all profilers, the amount of overhead
+    added isn’t consistent between function calls. This means the wall-clock
+    times you get back from the profile aren’t accurate in production and
+    aren’t even very accurate relative to one another.</p>
+    <p>In general, you can’t get a clear picture of what users are
+    experiencing by just profiling locally. It’s very hard to locally
+    recreate what causes slowdowns in production, as what’s happening on
+    your dev machine isn’t representative of real-world workload. “It’s fast
+    on my machine” doesn’t help your users when they’re staring at loading
+    spinners. Maybe only specific queries slow down your app or your
+    algorithm is only slow for certain inputs. It is very hard to find and
+    fix these kind of issues with local profiling alone.</p>
+    <h3 id="modern-profiling-in-production">Modern profiling in
+    production</h3>
+    <p>Ultimately, measuring performance in production is the only way to
+    accurately understand your system’s performance. Fortunately, profiling
+    technology has come a long way since local profiling tools were created.
+    Modern statistical profilers (&lt;statistical vs. deterministic
+    profilers are covered in more detail in part 1&gt;) are now advanced
+    enough to run in production with low overhead while still giving you a
+    view into your code’s performance that’s granular enough to be useful.
+    For example, Sentry’s profiling tools target &lt;10% overhead.</p>
+    <p>In addition, modern profiling tools are designed to be long running,
+    i.e. capturing data across all user sessions. This means you’re able to
+    get a comprehensive view of how your code is performing in the wild.</p>
+    <h2 id="how-does-profiling-compare-to">How does profiling compare to
+    <metrics/logging/tracing>?</h2>
+    <p>“Why should I set up profiling if we’re already getting performance
+    data in production from <insert tool here>?” No one wants to overhaul
+    the way they monitor performance. Fortunately, Profiling complements
+    other strategies for measuring performance and isn’t usually too hard to
+    set up. And the benefits are great: profiling data provides a function
+    or line level of granularity that makes it much easier for devs to find
+    and fix performance problems.</p>
+    <h3 id="system-metrics"><strong>System metrics</strong></h3>
+    <p>Page load times, CPU usage and other preconfigured metrics provide an
+    effective, low-overhead way to see the big picture of your performance
+    in production. Metrics are great for informing you that your system is
+    having issues (performance and otherwise) but can’t do much to help you
+    figure out why. Metrics are so low-overhead that there’s no reason not
+    to use them, but their usefulness is limited when compared to more
+    modern tools.</p>
+    <h3 id="logging"><strong>Logging</strong></h3>
+    <p>Logging is helpful for understanding your system’s health in many
+    ways, including performance. However, getting performance data from
+    logging requires a lot of manual work to add events everywhere you’re
+    interested in, and logs can be expensive to collect, depending on how
+    you’ve set up your logging system. Tracking and analyzing your logs to
+    understand the relationship to code flow across a distributed system can
+    also be challenging and time-consuming.</p>
+    <h3 id="tracing"><strong>Tracing</strong></h3>
+    <p>&lt;Check out part 1 for an explanation of how profiling is different
+    than distributed tracing.&gt;</p>
+    <p>If you’re monitoring your app’s performance using distributed
+    tracing, using something like Zipkin, Jaeger, Grafana Tempo, or even
+    (whispers) Sentry, you’re doing better than most. And while tracing is
+    great for showing where time is being spent across your services and
+    external calls, the information it can give you is only as granular as
+    the spans you’ve manually instrumented. Profiling complements tracing by
+    giving file and line level detail about where hot spots are, without
+    having you instrument every function. Later in this article, we cover
+    some of the benefits of using profiling and tracing together.</p>
+    <h3 id="profilings-advantages">Profiling’s advantages</h3>
+    <p>When there’s a performance issue in production, you want your tools
+    to let you know and point you to exactly where in your code the problem
+    is so you can fix it. This is where profiling comes in.</p>
+    <p>Since modern CPU profilers collect profilers by sampling the
+    callstack many times per second to determine how long each function
+    takes to run, they’re able to get extremely detailed data about where
+    your code is slow without adding a ton of instrumentation. And since
+    your profiler is running in production all the time, you’ll
+    automatically have data about the slowdown that only happens to your
+    boss, every February 29th during leap year.</p>
+    <p>The data you get back from your profiler allows you to dig into the
+    call stack for hotspots, showing you details about exactly where your
+    code spent time, down to the line number. Often this data is represented
+    with flame charts or flame graphs (you can learn more about what these
+    are and how to interpret them in part 3 <LINK>). Here’s an example of a
+    flame chart from Sentry’s Python profiler, where you can hover over a
+    function to see the callstack of what’s running, the amount of time each
+    function ran for, and the line number.</p>
+    <figure>
+    <img src="../images/profiling101-2-1.png" alt="Flamechart example" />
+    <figcaption aria-hidden="true">Flamechart example</figcaption>
+    </figure>
+    <h2 id="using-profiling-and-tracing-together">Using profiling and
+    tracing together</h2>
+    <p>At Sentry, we believe that profiling and tracing work better
+    together. Tracing gives you a high-level view of your system’s
+    performance while profiling fills in the details, allowing you to drill
+    down to an exact line number when working to root cause a slowdown.</p>
+    <p>With Sentry’s tools, many frameworks even support auto
+    instrumentation for tracing. This means that you can get started with
+    tracing by just adding a few lines of code — no custom instrumentation
+    necessary. If you enable profiling as well, Sentry’s transaction-based
+    profiler will automatically collect profiles for the auto-instrumented
+    transactions and link the profiles and transactions together. This
+    provides a straightforward mental model for exploring and understanding
+    your performance data. You can easily navigate from a higher-level
+    transaction view to function-level details in a profile and back again,
+    all in one cohesive view.</p>
+    <p>Let’s walk through a short example of using tracing and profiling to
+    explore a CPU-intensive workload using an example from one of Sentry’s
+    APIs (yes, we use Sentry to monitor Sentry). Here’s a transaction from
+    our <code>/customers</code> endpoint:</p>
+    <figure>
+    <img src="../images/profiling101-2-2.png"
+    alt="Transaction in Sentry UX" />
+    <figcaption aria-hidden="true">Transaction in Sentry UX</figcaption>
+    </figure>
+    <p>The transaction data shows that when paginating
+    <code>CustomerIndexEndpoint</code>, a significant amount of time is
+    spent in <code>AdminCustomerSerializer</code>. We can see the raw
+    database queries contributing to this time below that, but it’s
+    difficult to understand where in the code these queries are being
+    executed.</p>
+    <p>If you jump into the profile data, you can see this:</p>
+    <figure>
+    <img src="../images/profiling101-2-3.png"
+    alt="Profile data in Sentry UX" />
+    <figcaption aria-hidden="true">Profile data in Sentry UX</figcaption>
+    </figure>
+    <p>From here, it’s easy to identify functions like
+    <code>AdminCustomerSerializer.get_member_counts</code> and
+    <code>AdminCustomerSerializer.get_current_billing_histories</code>,
+    which are the places in the code that the SQL queries are being executed
+    from (as you can see by reading further down the function call stack to
+    <code>CursorWrapper.execute</code>). From here, you can click on a frame
+    and <strong>Open in GitHub</strong> to navigate <a
+    href="https://github.com/getsentry/getsentry/blob/304934998467b3d3226413a52c5ce652d1e9aa69/getsentry/api/serializers/customer.py#L53">directly
+    to the code:</a></p>
+    <figure>
+    <img src="../images/profiling101-2-4.png" alt="Open in GitHub button" />
+    <figcaption aria-hidden="true">Open in GitHub button</figcaption>
+    </figure>
+    <h2 id="conclusion">Conclusion</h2>
+    <p>Profilers are incredibly useful tools for identifying code hot spots,
+    whether used locally or in production. However, using a long-running
+    modern profiler in production is the easiest way to:</p>
+    <ol type="1">
+    <li>Accurately understand what your users are experiencing</li>
+    <li>Get actionable information to start fixing performance problems</li>
+    </ol>
     </body>
 <footer>
   <p>Powered by <a href="https://github.com/shanamatthews/static-site-generator">Shana's custom static site
