@@ -20,15 +20,15 @@ I enjoy a bit of public speaking now and again. Here are links to slides and rec
 
 ## Livestreams
 
-- Sentry - Cloudflare's SDK for Sentry [recording](https://www.youtube.com/watch?v=gH8NMKxRfrQ&ab_channel=Sentry)
-- Sentry - Using performance monitoring with Tonal [recording](https://www.youtube.com/watch?v=88kpIKAP5xQ&ab_channel=Sentry)
-- Sentry Hacktoberfest stream [recording](https://www.youtube.com/watch?v=6uo6uVmwxIQ&ab_channel=Sentry)
+- Sentry - Cloudflare's SDK for Sentry: [recording](https://www.youtube.com/watch?v=gH8NMKxRfrQ&ab_channel=Sentry)
+- Sentry - Using performance monitoring with Tonal: [recording](https://www.youtube.com/watch?v=88kpIKAP5xQ&ab_channel=Sentry)
+- Sentry - Hacktoberfest stream: [recording](https://www.youtube.com/watch?v=6uo6uVmwxIQ&ab_channel=Sentry)
 - Microsoft Reactor - Linux on Windows: The Best of Both Worlds for C++ Development: [recording](https://www.youtube.com/watch?v=wW6l1B6X4RQ&t=864s&ab_channel=MicrosoftReactor)
-- raise.dev - C-based CLI audio editor: [recording](https://www.youtube.com/watch?v=a0skgSKouUA&ab_channel=MicrosoftDeveloper)
+- raise.dev - Shana's CLI audio editor written in C: [recording](https://www.youtube.com/watch?v=a0skgSKouUA&ab_channel=MicrosoftDeveloper)
 
 ## Short-form videos
 
-All scripted & recorded by me
+All scripted & recorded by me.
 
 - [What is Continuous Profiling](https://www.youtube.com/watch?v=ZR62MvVdu50&ab_channel=Sentry)
 - [What is Linux?](https://www.youtube.com/watch?v=jx5I-8_arqM&ab_channel=WindowsDeveloper)
