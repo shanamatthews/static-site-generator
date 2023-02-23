@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Shana" />
+      <meta name="date" content="2022-10-28" />
+    <meta name="keywords" content="false, nothing" />
+  <link rel="stylesheet" href=../assets/css/styles.css>
+  <title>Python 3.11 Release - What you should know</title>
+  <link rel="shortcut icon" type="image/jpg"
+  href="../assets/favicons/frog_favicon.ico" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="logo"><a href="/">Shana Matthews</a></div>
+    <nav class="header-links">
+      <ul>
+        <li><a href="/about/">About</a></li>
+        <!-- <li><a href="/contact/">Contact</a></li> -->
+        <li><a href="/posts/">Posts</a></li>
+        <li><a href="/talks/">Talks</a></li>
+        <li><a href="/reading/">What am I reading?</a></li>
+      </ul>
+    </nav>
+  </header>
+    <h1 class="title">Python 3.11 Release - What you should know</h1>
+      <p class="date">2022-10-28</p>
+    <p>Python 3.11 was released on Oct. 24th, 2022. This latest version
+    makes Python faster and even more user-friendly. If you’re not ready
+    to take the time to read the full official <a
+    href="https://docs.python.org/3/whatsnew/3.11.html">“What’s New”
+    doc</a>, I’ve got you covered. Here are the top 5 things you should
+    know about the Python 3.11 release, including handy code
+    samples.</p>
+    <h2 id="its-faster">1. It’s Faster</h2>
+    <p>Compared to Python 3.10, 3.11 is fast. Really fast.</p>
+    <p>One way you can see this for yourself is by using the <a
+    href="https://pyperformance.readthedocs.io/">pyperformance</a> tool.
+    <code>pyperformance</code> is the standard performance measuring
+    tool that CPython uses to validate their changes. Here’s one
+    benchmark from that suite: <code>django_template</code>.</p>
+    <h3 id="run-in-python-3.10">Run in Python 3.10</h3>
+    <div class="sourceCode" id="cb1"><pre
+    class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">virtualenv</span> venv310 <span class="at">-ppython3.10</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">./venv310/bin/pip</span> install pyperformance</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">./venv310/bin/pyperformance</span> run <span class="at">-b</span> django_template</span></code></pre></div>
+    <pre class="output"><code>Python benchmark suite 1.0.5
+
+==================================================
+( 1/1) creating venv for benchmark (django_template)
+
+...
+
+Performance version: 1.0.5
+Python version: 3.10.8 (64-bit)
+Report on macOS-12.6-arm64-arm-64bit
+Number of logical CPUs: 10
+Start date: 2022-11-04 15:38:56.714169
+End date: 2022-11-04 15:39:10.918179
+
+### django_template ###
+Mean +- std dev: 27.7 ms +- 0.6 ms</code></pre>
+    <p>We can see that this ran for ~28 ms on my machine.</p>
+    <h3 id="run-in-python-3.11">Run in Python 3.11</h3>
+    <div class="sourceCode" id="cb3"><pre
+    class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">virtualenv</span> venv311 <span class="at">-ppython3.11</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">./venv311/bin/pip</span> install pyperformance</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">./venv311/bin/pyperformance</span> run <span class="at">-b</span> django_template</span></code></pre></div>
+    <pre class="output"><code>Python benchmark suite 1.0.5
+
+==================================================
+( 1/1) creating venv for benchmark (django_template)
+
+...
+
+Performance version: 1.0.5
+Python version: 3.11.0 (64-bit) revision deaf509e8f
+Report on macOS-12.6-arm64-arm-64bit
+Number of logical CPUs: 10
+Start date: 2022-11-04 15:52:40.979797
+End date: 2022-11-04 15:53:01.172844
+
+### django_template ###
+Mean +- std dev: 21.1 ms +- 0.6 ms</code></pre>
+    <p>And the new version ran for ~21 ms.</p>
+    <p>This very unscientific test shows about a ~25% speedup, which
+    lines up very nicely with the <a
+    href="https://docs.python.org/3/whatsnew/3.11.html#faster-cpython">reported
+    average 25% speedup</a>, but your mileage may vary.</p>
+    <h2 id="new-tomllib-library">2. New <code>tomllib</code>
+    library</h2>
+    <p>The new <a
+    href="https://docs.python.org/3/library/tomllib.html#module-tomllib"><code>tomllib</code>
+    library</a> brings support for parsing <a
+    href="https://toml.io/en/">TOML</a> files. <code>tomllib</code> does
+    not support writing TOML. It’s based on the <a
+    href="https://github.com/hukkin/tomli"><code>tomli</code></a>
+    library.</p>
+    <p>The two main functions in <code>tomllib</code> are:</p>
+    <ul>
+    <li><code>load()</code>: load bytes from file</li>
+    <li><code>loads()</code>: load from <code>str</code></li>
+    </ul>
+    <p>Here’s an example of each:</p>
+    <div class="sourceCode" id="cb5"><pre
+    class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tomllib</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># gives TypeError, must use binary mode</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&#39;t.toml&#39;</span>) <span class="im">as</span> f:</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    tomllib.load(f)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># correct</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&#39;t.toml&#39;</span>, <span class="st">&#39;rb&#39;</span>) <span class="im">as</span> f:</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    tomllib.load(f)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># correct</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&#39;t.toml&#39;</span>) <span class="im">as</span> f:</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    tomllib.loads(f.read())</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co"># gives TypeError, can&#39;t read bytestring</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&#39;t.toml&#39;</span>, <span class="st">&#39;rb&#39;</span>) <span class="im">as</span> f:</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    tomllib.loads(f.read())</span></code></pre></div>
+    <h2 id="asyncio-task-and-exception-groups">3. <code>asyncio</code>
+    Task and Exception Groups</h2>
+    <p><a
+    href="https://docs.python.org/3/library/asyncio-task.html#task-groups">Task
+    groups</a> are conceptually similar to the <a
+    href="https://docs.python.org/3/library/concurrent.futures.html"><code>concurrent.futures</code>
+    module</a> and what they did for the <a
+    href="https://docs.python.org/3/library/multiprocessing.html"><code>multiprocessing</code>
+    module</a>. They give you a convenient executor to run multiple
+    tasks and join them together at the end.</p>
+    <p>Task groups can be a replacement for <a
+    href="https://docs.python.org/3/library/asyncio-task.html#running-tasks-concurrently"><code>asyncio.gather()</code></a>.</p>
+    <p>Here’s an example of what using <code>asyncio.gather()</code>
+    looks like:</p>
+    <div class="sourceCode" id="cb6"><pre
+    class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> f1(x: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> asyncio.sleep(x <span class="op">/</span> <span class="dv">10</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&#39;hi from </span><span class="sc">{</span>x<span class="sc">}</span><span class="ss">&#39;</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> amain() <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># clunky, previous way of doing this</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    futures <span class="op">=</span> [f1(i) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>)]</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> asyncio.gather(<span class="op">*</span>futures)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&#39;done&#39;</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main() <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> asyncio.run(amain())</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">SystemExit</span>(main())</span></code></pre></div>
+    <p>This is clunky and doesn’t give you the flexibility to call other
+    functions or use loops or conditions, because all the futures must
+    be gathered in one place.</p>
+    <p>Task groups make this much easier:</p>
+    <div class="sourceCode" id="cb7"><pre
+    class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> amain() <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># new, nice way of doing this!</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="cf">with</span> asyncio.TaskGroup() <span class="im">as</span> tg:</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>        <span class="co"># you can do loops, conditions, etc</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>            tg.create_task(f1(i))</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&#39;done&#39;</span>)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>...</span></code></pre></div>
+    <p>The task group causes all tasks to run to completion before the
+    context exits, giving you much more flexibility.</p>
+    <h2 id="improvements-to-exceptions">4. Improvements to
+    Exceptions</h2>
+    <p>There’s a lot here, so I’m going to split this up into
+    sections:</p>
+    <h3 id="exception-groups">Exception groups</h3>
+    <p>First up are <a
+    href="https://docs.python.org/3/whatsnew/3.11.html#pep-654-exception-groups-and-except">exception
+    groups</a>. Exception groups are similar to task groups in that they
+    give a new way to represent exceptions in <code>asyncio</code>. This
+    now allows different coroutines to error in different ways and all
+    the different exceptions will be collected into an <a
+    href="https://docs.python.org/3/library/exceptions.html#ExceptionGroup"><code>ExceptionGroup</code></a>,
+    allowing you to handle each exception separately.</p>
+    <p>Sentry is currently evaluating how best to represent exception
+    groups in Python and other languages. Come <a
+    href="https://github.com/getsentry/sentry/issues/37716">join the
+    conversation on GitHub</a>.</p>
+    <p>Let’s look at an example:</p>
+    <div class="sourceCode" id="cb8"><pre
+    class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> f1(x: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> asyncio.sleep(x <span class="op">/</span> <span class="dv">10</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&#39;hi from </span><span class="sc">{</span>x<span class="sc">}</span><span class="ss">&#39;</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> f2():</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="dv">1</span>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> f3():</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span> <span class="op">*</span> <span class="dv">3</span> <span class="op">*</span> (<span class="dv">4</span> <span class="op">*</span> <span class="va">None</span>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> amain() <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># each of these 3 errors will happen in the background</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># and be collected into this TaskGroup</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="cf">with</span> asyncio.TaskGroup() <span class="im">as</span> tg:</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>            tg.create_task(f1(i))</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>        tg.create_task(f2())</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>        tg.create_task(f2())</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>        tg.create_task(f3())</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&#39;done&#39;</span>)</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main() <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> asyncio.run(amain())</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">SystemExit</span>(main())</span></code></pre></div>
+    <p>With the introduction of exception groups, your output will still
+    look a little wild, but it’s much more logical than before.</p>
+    <p>This output shows our <code>ExceptionGroup</code> with our
+    <code>TypeError</code> and our two <code>ValueError</code>s:</p>
+    <pre class="output"><code>hi from 0
++ Exception Group Traceback (most recent call last):
+|   File &quot;/Users/shanamatthews/src/git/sentry-blogs/exception_group.py&quot;, line 31, in &lt;module&gt;
+|     raise SystemExit(main())
+|                      ^^^^^^
+|   File &quot;/Users/shanamatthews/src/git/sentry-blogs/exception_group.py&quot;, line 28, in main
+|     return asyncio.run(amain())
+|            ^^^^^^^^^^^^^^^^^^^^
+|   File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/runners.py&quot;, line 190, in run
+|     return runner.run(main)
+|            ^^^^^^^^^^^^^^^^
+|   File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/runners.py&quot;, line 118, in run
+|     return self._loop.run_until_complete(task)
+|            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+|   File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/base_events.py&quot;, line 650, in run_until_complete
+|     return future.result()
+|            ^^^^^^^^^^^^^^^
+|   File &quot;/Users/shanamatthews/src/git/sentry-blogs/exception_group.py&quot;, line 17, in amain
+|     async with asyncio.TaskGroup() as tg:
+|   File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/taskgroups.py&quot;, line 135, in __aexit__
+|     raise me from None
+| ExceptionGroup: unhandled errors in a TaskGroup (3 sub-exceptions)
++-+---------------- 1 ----------------
+| Traceback (most recent call last):
+|   File &quot;/Users/shanamatthews/src/git/sentry-blogs/exception_group.py&quot;, line 8, in f2
+|     raise ValueError(1)
+| ValueError: 1
++---------------- 2 ----------------
+| Traceback (most recent call last):
+|   File &quot;/Users/shanamatthews/src/git/sentry-blogs/exception_group.py&quot;, line 8, in f2
+|     raise ValueError(1)
+| ValueError: 1
++---------------- 3 ----------------
+| Traceback (most recent call last):
+|   File &quot;/Users/shanamatthews/src/git/sentry-blogs/exception_group.py&quot;, line 11, in f3
+|     2 * 3 * (4 * None)
+|              ~~^~~~~~
+| TypeError: unsupported operand type(s) for *: &#39;int&#39; and &#39;NoneType&#39;
++------------------------------------</code></pre>
+    <h3 id="underline-arrows">Underline arrows</h3>
+    <p>Another interesting thing to note in the exception output above
+    are the underline arrows (e.g. <code>^^^^^^^^^^^^^^</code>). These
+    arrows point to the exact expression that caused the error. This is
+    new to all tracebacks and isn’t specific to
+    <code>asyncio</code>.</p>
+    <p>You can see in the final exception of the
+    <code>ExceptionGroup</code> the <code>~~^~~~~~</code> points out the
+    exact operator that caused a problem.</p>
+    <p>If we wanted to handle these errors we could do something like
+    this:</p>
+    <div class="sourceCode" id="cb10"><pre
+    class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> amain() <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">async</span> <span class="cf">with</span> asyncio.TaskGroup() <span class="im">as</span> tg:</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>                tg.create_task(f1(i))</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>            tg.create_task(f2())</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>            tg.create_task(f2())</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>            tg.create_task(f3())</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># we can catch the whole ExceptionGroup</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> ExceptionGroup <span class="im">as</span> eg:</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&#39;got </span><span class="sc">{</span>eg<span class="sc">}</span><span class="ss">&#39;</span>)</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&#39;done&#39;</span>)</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>...</span></code></pre></div>
+    <p>And now our output would look like:</p>
+    <pre class="output"><code>hi from 0
+got unhandled errors in a TaskGroup (3 sub-exceptions)
+done</code></pre>
+    <h3 id="except-syntax"><code>except*</code> syntax</h3>
+    <p>Python 3.11 also includes new syntax for handling exception
+    groups, which is the <a
+    href="https://docs.python.org/3/whatsnew/3.11.html#pep-654-exception-groups-and-except"><code>except*</code>
+    syntax</a>. This syntax allows you to collect exception groups of
+    each of the types of exceptions that might be handled.</p>
+    <p>This would look like:</p>
+    <div class="sourceCode" id="cb12"><pre
+    class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> amain() <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">async</span> <span class="cf">with</span> asyncio.TaskGroup() <span class="im">as</span> tg:</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>                tg.create_task(f1(i))</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>            tg.create_task(f2())</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>            tg.create_task(f2())</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>            tg.create_task(f3())</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># will collect all AssertionErrors into an ExceptionGroup</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span><span class="op">*</span> <span class="pp">TypeError</span> <span class="im">as</span> eg:</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&#39;got TE </span><span class="sc">{</span>eg<span class="sc">}</span><span class="ss">&#39;</span>)</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># will collect all ValueErrors into an ExceptionGroup</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span><span class="op">*</span> <span class="pp">ValueError</span> <span class="im">as</span> eg:</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&#39;got VE </span><span class="sc">{</span>eg<span class="sc">}</span><span class="ss">&#39;</span>)</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&#39;done&#39;</span>)</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>...</span></code></pre></div>
+    <p>Now our output looks very sane:</p>
+    <pre class="output"><code>hi from 0
+got TE unhandled errors in a TaskGroup (1 sub-exception)
+got VE unhandled errors in a TaskGroup (2 sub-exceptions)
+done</code></pre>
+    <h3 id="adding-notes-to-exceptions">Adding notes to exceptions</h3>
+    <p>Python 3.11 also now allows you to <a
+    href="https://docs.python.org/3/whatsnew/3.11.html#pep-678-exceptions-can-be-enriched-with-notes">add
+    notes to your exceptions</a> via the <code>add_note()</code>
+    method.</p>
+    <p>This new feature could be useful in adding information to an
+    exception as it bubbles up. Even if you don’t get the information
+    you’d need to change the type or re-raise the exception properly,
+    you can still add extra context.</p>
+    <!-- todo shana link to Sentry issue on notes? -->
+    <p>Let’s take our previous example code and add a new error type to
+    demonstrate:</p>
+    <div class="sourceCode" id="cb14"><pre
+    class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> f4():</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">await</span> f3()</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">TypeError</span> <span class="im">as</span> e:</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>        e.add_note(<span class="st">&#39;this failed while trying to blah&#39;</span>)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> amain() <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>   <span class="cf">async</span> <span class="cf">with</span> asyncio.TaskGroup() <span class="im">as</span> tg:</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>       <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>           tg.create_task(f1(i))</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>       tg.create_task(f2())</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>       tg.create_task(f2())</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>       tg.create_task(f4())</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>...</span></code></pre></div>
+    <p>And here’s a truncated version of the output where you can see
+    the added note:</p>
+    <pre class="output"><code>...
++---------------- 3 ----------------
+| Traceback (most recent call last):
+|   File &quot;/Users/shanamatthews/src/git/sentry-blogs/exception_group.py&quot;, line 15, in f4
+|     await f3()
+|   File &quot;/Users/shanamatthews/src/git/sentry-blogs/exception_group.py&quot;, line 11, in f3
+|     2 * 3 * (4 * None)
+|              ~~^~~~~~
+| TypeError: unsupported operand type(s) for *: &#39;int&#39; and &#39;NoneType&#39;
+| this failed while trying to blah
++------------------------------------</code></pre>
+    <h2 id="typing-improvements">5. Typing Improvements</h2>
+    <p>Python 3.11 also comes with a lot of improvements to typing, so
+    I’m splitting this into multiple sections as well.</p>
+    <h3 id="self-type"><code>Self</code> type</h3>
+    <p>The <a
+    href="https://docs.python.org/3/library/typing.html#typing.Self"><code>Self</code></a>
+    type makes it easier to add types to certain categories of methods.
+    One example is cloning. Previously, the type checker would believe
+    that the output of <code>D.clone()</code> in the below example had
+    type <code>C</code>:</p>
+    <div class="sourceCode" id="cb16"><pre
+    class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> C:</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> clone(<span class="va">self</span>) <span class="op">-&gt;</span> C:</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">type</span>(<span class="va">self</span>)()</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> D(C):</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>D.clone()  <span class="co"># type C, according to the typechecker</span></span></code></pre></div>
+    <p>But now, we can use the <code>Self</code> type to correctly
+    forward the type to the actual class:</p>
+    <div class="sourceCode" id="cb17"><pre
+    class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> C:</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> clone(<span class="va">self</span>: Self) <span class="op">-&gt;</span> Self:</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">type</span>(<span class="va">self</span>)()</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> D(C):</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>D.clone()  <span class="co"># type D, according to the typechecker</span></span></code></pre></div>
+    <p>You can also use this with classmethods.</p>
+    <h3 id="variadic-generics">Variadic Generics</h3>
+    <p><a
+    href="https://docs.python.org/3/whatsnew/3.11.html#pep-646-variadic-generics">Variadic
+    generics</a> allow you to have variables that contain multiple
+    types. This is especially important for tensor type objects
+    (i.e. NumPy arrays, TensorFlow objects, Pandas, etc.) where you’re
+    representing arrays with multiple dimensions.</p>
+    <p>The 3.11 release added the new <a
+    href="https://docs.python.org/3/library/typing.html#typing.TypeVarTuple"><code>TypeVarTuple</code></a>,
+    which makes it possible to have parameters with an arbitrary number
+    of types, e.g. a variadic type variable, enabling variadic
+    generics.</p>
+    <p>Here’s some example code showing how <code>TypeVarTuple</code>
+    can be used:</p>
+    <div class="sourceCode" id="cb18"><pre
+    class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> TypeVarTuple</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">#  TypeVarTuple represents our multi-variable generic</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>Ts <span class="op">=</span> TypeVarTuple(<span class="st">&#39;Ts&#39;</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co"># allows for multiple types</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Array(Generic[<span class="op">*</span>Ts]):</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    ...</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co"># e.g. a 2d array with float data</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>x: Array[<span class="bu">int</span>, <span class="bu">int</span>, <span class="bu">float</span>]</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="co"># can also use in functions that transform them</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> double(a: Array[<span class="op">*</span>Ts]) <span class="op">-&gt;</span> Array[<span class="op">*</span>Ts]:</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>    ...</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="co"># e.g. adding another dimension to our array</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add_dimention(a: Array[<span class="op">*</span>Ts]) <span class="op">-&gt;</span> Array[<span class="bu">int</span>, <span class="op">*</span>Ts]:</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>    ...</span></code></pre></div>
+    <p>We’re now also able to use the <code>*</code> (splat, unpack)
+    operator inside tuples and inside of <code>*args</code>. This will
+    make more sense in another example:</p>
+    <div class="sourceCode" id="cb19"><pre
+    class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> TypeAlias</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>t: TypeAlias <span class="op">=</span> <span class="bu">tuple</span>[<span class="bu">int</span>, <span class="bu">int</span>]</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co"># use * to expand t</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>t2: TypeAlias <span class="op">=</span> <span class="bu">tuple</span>[<span class="op">*</span>t, <span class="bu">float</span>, <span class="bu">str</span>]  <span class="co"># tuple[int, int, float, str]</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co"># use * to create a variable length tuple with fixed-length pre- or post-fix</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="co"># i.e. a string followed by a variable number of ints</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>t3: TypeAlias <span class="op">=</span> <span class="bu">tuple</span>[<span class="bu">str</span>, <span class="op">*</span><span class="bu">tuple</span>[<span class="bu">int</span>, ...]]</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="co"># represents a function that takes a string as its first arg,</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="co"># then a variable number of ints</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(<span class="op">*</span>args: <span class="op">*</span>t3):</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>    s, <span class="op">*</span>ints <span class="op">=</span> args <span class="co"># types are string, variable number of ints</span></span></code></pre></div>
+    <h3 id="literalstring"><code>LiteralString</code></h3>
+    <p>The <a
+    href="https://docs.python.org/3/whatsnew/3.11.html#pep-675-arbitrary-literal-string-type"><code>LiteralString</code></a>
+    annotation allows you to make a variable that has to be a string
+    literal in your source code. One practical example of this is using
+    the type checker to ban SQL injection, by forcing queries to come
+    from literal strings, rather than formatted strings, i.e.:</p>
+    <div class="sourceCode" id="cb20"><pre
+    class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> LiteralString</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> execute_query(s: LiteralString) <span class="op">-&gt;</span> ...:</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    ...</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co"># allowed</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>execute_query(<span class="st">&#39;SELECT * FROM USERS&#39;</span>)</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co"># not allowed</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>users <span class="op">=</span> <span class="st">&#39;...&#39;</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>execute_query(<span class="st">&#39;SELECT * FROM </span><span class="sc">{}</span><span class="st">&#39;</span>.<span class="bu">format</span>(users))</span></code></pre></div>
+    <h3 id="never-assert_never-and-assert_type"><code>Never</code>,
+    <code>assert_never</code>, and <code>assert_type</code></h3>
+    <p>The <a
+    href="https://docs.python.org/3/library/typing.html#typing.Never"><code>Never</code></a>
+    type is a new alias for <code>NoReturn</code>. If you have a
+    function that never completes, because it always raises an
+    exception, loops forever, or some other reason, it can have a return
+    type of <code>Never</code>.</p>
+    <div class="sourceCode" id="cb21"><pre
+    class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> Never</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f1() <span class="op">-&gt;</span> Never:  <span class="co"># same as -&gt; NoReturn</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    ...</span></code></pre></div>
+    <p><a
+    href="https://docs.python.org/3/library/typing.html#typing.assert_never"><code>assert_never</code></a>
+    and <a
+    href="https://docs.python.org/3/library/typing.html#typing.assert_type"><code>assert_type</code></a>
+    are two new assert helpers that make the typechecker more
+    useful.</p>
+    <p><code>assert_never</code> uses the typechecker to confirm that
+    code is not reachable. If the typechecker finds it is reachable, it
+    emits an error. A call to <code>assert_never</code> won’t pass type
+    checking unless the inferred type of the argument passed in to
+    <code>assert_never</code> is of type <code>Never</code>. This is
+    useful for ensuring completeness in if statements and match case
+    statements.</p>
+    <p>In the below example, the typechecker would give an error about
+    the float type not being allowed in the <code>assert_never</code>
+    function, and if we tried to pass a param of type float to
+    <code>int_or_str</code> we’d get an exception at runtime.</p>
+    <div class="sourceCode" id="cb22"><pre
+    class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> assert_never</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> what_type(arg: <span class="bu">int</span> <span class="op">|</span> <span class="bu">str</span> <span class="op">|</span> <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">match</span> arg:</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">case</span> <span class="bu">int</span>():</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">&quot;It&#39;s an int&quot;</span>)</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">case</span> <span class="bu">str</span>():</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">&quot;It&#39;s a str&quot;</span>)</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">case</span> _ <span class="im">as</span> unreachable:</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>            assert_never(unreachable) <span class="co"># typechecker error</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>what_type(<span class="fl">1.0</span>) <span class="co"># runtime exception</span></span></code></pre></div>
+    <p><code>assert_type()</code> lets you use the typechecker to ensure
+    a variable has the type you intended. If your typechecker doesn’t
+    agree with you, you’ll get a typechecker error, but no errors at
+    runtime.</p>
+    <div class="sourceCode" id="cb23"><pre
+    class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> assert_never</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> assert_type</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> what_type(arg: <span class="bu">int</span> <span class="op">|</span> <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">match</span> arg:</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">case</span> <span class="bu">int</span>():</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">&quot;It&#39;s an int&quot;</span>)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">case</span> <span class="bu">str</span>():</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">&quot;It&#39;s a str&quot;</span>)</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">case</span> _ <span class="im">as</span> unreachable:</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>            assert_never(unreachable)</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>    assert_type(arg, <span class="bu">int</span>) <span class="co"># you and your typechecker agree</span></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># assert_type(arg, str) # this would give a typechecker error</span></span></code></pre></div>
+    <h3
+    id="typeddict-and-namedtuple-can-be-generic"><code>TypedDict</code>
+    and <code>NamedTuple</code> can be generic</h3>
+    <p>This is pretty straightforward. <a
+    href="https://docs.python.org/3/library/typing.html#typing.TypedDict"><code>TypedDict</code></a>
+    and <a
+    href="https://docs.python.org/3/library/typing.html#typing.NamedTuple"><code>NamedTuple</code></a>
+    can both now be generic. Here’s example code for
+    <code>TypedDict</code>:</p>
+    <div class="sourceCode" id="cb24"><pre
+    class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> Generic</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># using generic types inside our typed dictionary</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> TypedDict(Generic[T]):</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    x: T</span></code></pre></div>
+    <h2 id="wrap-up">Wrap Up</h2>
+    <p>Does this release include earth-shattering improvements that
+    fundamentally change Python? No. But there are some noteworthy
+    improvements that make Python faster, and easier to use. The
+    seemingly minor improvements add up to make one of my favorite
+    languages that much better.</p>
+    <p>There are many more features in Python 3.11 worth taking a look
+    at. This piece was a collab with Anthony Sotille, <a
+    href="https://www.youtube.com/watch?v=w2rcZIG1Uxk">so check out this
+    video from him</a> to learn even more.</p>
+    </body>
+<footer>
+  <p>Powered by <a href="https://github.com/shanamatthews/static-site-generator">Shana's custom static site
+      generator</a> (aka literally just one Bash script)</insert>
+  </p>
+  <p>Theme inspired by ✨<a href="https://sailorhg.github.io/fairyfloss/">sailorhg's Fairyfloss</a> ✨</p>
+  <a rel="me" href="https://mastodon.social/@shanacodes"></a>
+</footer>
+<script src="/assets/main.js"></script>
+
+</html>
