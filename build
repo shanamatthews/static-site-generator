@@ -5,7 +5,17 @@ shopt -s globstar
 declare -a unsorted_posts
 for post in $(ls -t posts/*.md); do
   if [[ $post != "posts/index.md" ]]; then
-    post_date=$(sed -n 's/^date: //p' ${post})
+    # get the front matter
+    post_fm=$(sed -n '/^---$/,/^---$/p' "${post}")
+
+    # skip if draft
+    if [[ ${post_fm} == *"draft: true"* ]]; then
+#      echo "found a draft: ${post_fm}"
+      continue
+    fi
+
+    post_date=$(sed -n 's/^date: //p' <<< "${post_fm}")
+    echo "${post_date}"
     post_name=$(basename $post)
     post_name="${post_date}_${post_name}"
     unsorted_posts+=(${post_name})
