@@ -3,7 +3,6 @@ title: "Doesn't socialism always end up in dictatorship?"
 author: Shana
 keywords: [no, nothing]
 date: 2020-09-10T06:33:14-07:00
-draft: true
 ---
 
 I was taught that socialism can't work because it always leads to a dictatorship, as seen in:
@@ -16,7 +15,7 @@ Marxist socialism was conceived of by and for strong, prosperous post-capitalist
 
 However, capitalists already had a lot of power in these societies and used this power to stamp out socialism out of self interest.
 
-Less-wealthy countries that imported these ideas (Soviet Union, China, Venezuela) were able to implement socialist and communist policies because capitalists did not have as much power yet.
+Less-wealthy countries that imported these ideas (Soviet Union, China, Venezuela) were able to implement socialist and communist policies because capitalists did not have much power yet.
 
 But, socialism was not invented for these pre-industrial, agrarian societies, it had to be heavily adapted.
 
