@@ -53,3 +53,5 @@ Books:
 - [in-progress], [reread] [Return of the King](https://openlibrary.org/works/OL27516W/The_Return_of_the_King?edition=ia%3Aleretourduroi0000tolk)
 - [paused] [Spare](https://openlibrary.org/works/OL29240850W/Spare)
 - [paused] [Unsettled Ground](https://openlibrary.org/works/OL25758323W/Unsettled_Ground)
+- [finished] [Legends & Lattes](https://openlibrary.org/works/OL27591348W). Wow, this was so cute. a really cozy, easy read, which is just what I needed. ⭐️⭐️⭐️⭐️⭐️
+- [finished] [Tales from the Hinterland](Tales from the Hinterland). A companion book to a series I've liked recently ([The Hazel Wood](https://openlibrary.org/works/OL19730066W/The_Hazel_Wood?edition=key%3A/books/OL26943167M)). Creepy short stories, took me a while to get through. ⭐️⭐️⭐️
