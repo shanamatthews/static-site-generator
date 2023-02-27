@@ -15,7 +15,11 @@ for post in $(ls -t posts/*.md); do
     fi
 
     post_date=$(sed -n 's/^date: //p' <<< "${post_fm}")
-    echo "${post_date}"
+    if [[ -z ${post_date} ]]; then
+      echo "Error: no date in frontmagger of ${post}"
+      continue
+    fi
+
     post_name=$(basename $post)
     post_name="${post_date}_${post_name}"
     unsorted_posts+=(${post_name})
@@ -68,12 +72,14 @@ for md in **/*.md; do
   if [[ ${md} == "posts/index.md" ]]; then
     pandoc -s "${md}" -o "${dir}"/index.html --template assets/template.html \
       --variable assets-folder="${assets_folder}" \
-      ${latest_posts[*]} 
+      ${latest_posts[*]} || \
+      echo "Error: failed to build ${md}"
     continue
   fi
 
   # all other pages
   pandoc -s "${md}" -o "${dir}"/${filename}.html --template assets/template.html \
-    --variable assets-folder="${assets_folder}"
+    --variable assets-folder="${assets_folder}" || \
+    echo "Error: failed to build ${md}"
 done
 
