@@ -10,13 +10,12 @@ for post in $(ls -t posts/*.md); do
 
     # skip if draft
     if [[ ${post_fm} == *"draft: true"* ]]; then
-#      echo "found a draft: ${post_fm}"
       continue
     fi
 
     post_date=$(sed -n 's/^date: //p' <<< "${post_fm}")
     if [[ -z ${post_date} ]]; then
-      echo "Error: no date in frontmagger of ${post}"
+      echo "Error: no date in frontmatter of ${post}"
       continue
     fi
 
