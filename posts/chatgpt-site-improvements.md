@@ -3,23 +3,21 @@ title: chatgpt-site-improvements
 author: Shana
 keywords: [no, nothing]
 date: 2023-02-27
-draft: true
 ---
-I've been in a personal-projects slump recently, as evidenced by my GitHub activity chart, yikes.
 
-![](../images/github-dots.png)
+I'm really proud of myself for creating this site with my own static site generator [written with just Bash scripts](./static-site-generator-with-bash.html). I think it's sick and it aligns with my stance on not needing a framework or even a "real" programming language to do every single thing.
 
-This is mostly because of some health stuff that came up early in January and I'm still dealing with. However, I've been doing better over the last couple of weeks and I've found some energy and excitement to start playing around, particularly with ChatGPT-related things.
+However the reality is... I'm not so great at Bash scripting. I don't use Bash regularly at work, or even in personal projects, so whenever I want to go in to make tweaks to this site, I always feel super rusty and it takes ages to remember how this simple project works.
 
-### This website
+I'd been wanting to add a tiny new "features" allowing me to have draft posts in the site without publishing them (aka generating an html page for them), but had been putting it off because I knew I'd have to wrap my brain around my messy Bash scripts again.
 
-I'm really proud of myself for creating this site with my own static site generator [written with just Bash scripts](./static-site-generator-with-bash.html). I think it's sick and it aligns with my stance on not needing a framework or fancy tech to do every single thing.
+That's where ChatGPT comes in! I'd read some really promising things about folks using ChatGPT to help them with simple scripting and I figured my build script for this site was simple enough that ChatGPT might be able to help add this draft posts feature.
 
-However the reality is... I kinda suck at Bash scripting. I don't use Bash regularly at work, or even in personal projects, so whenever I want to go in to make tweaks to this site, I always feel super rusty and it takes ages just to remember how this very simple project works. That means that adding new "features" like the ability to have draft posts feels really tedious.
+⚠️ Spoiler alert: It was not.
 
-That's where ChatGPT comes in! I'd read some really promising things about folks using ChatGPT to help them with super simple scripting and I wanted to try it out with this site.
+## The challenge
 
-I tested out ChatGPT by feeding it my [`build` script](https://github.com/shanamatthews/static-site-generator/blob/main/build) and asking what it did. It was very accurate! Impressive!
+I first tested out ChatGPT by feeding it my [`build` script](https://github.com/shanamatthews/static-site-generator/blob/main/build) and asking what it did. It was very accurate! Impressive!
 
 >This script is used to build a static website. Here's a step-by-step explanation of what it does:
 >
@@ -68,11 +66,12 @@ Here was it's response:
 >done
 >
 >...
+> <more code>
 >```
 
-This was kinda right, but if "draft: true" appeared anywhere in the post, it would skip it. It's not likely that I'd write that phrase outside of the frontmatter, but I'd rather not run into that weird and confusing bug later.
+At first glance, this looked kinda right! I didn't like that it wasn't actually checking the frontmatter, as instructed. By using `grep` in this way, the script would skip the file if "draft: true" appeared anywhere in the post, not just in the frontmatter. It's not likely that I'd write that phrase *outside* of the frontmatter, but I'd rather not run into that weird and confusing bug later.
 
-With a little more prompting, ChatGPT gave me a better answer:
+I was pretty optimistic at this point. I fiddled with ChatGPT a little more until I got it to output a version that checked the frontmatter specifically, and also grabbed the date from the frontmatter specifically. This was definitely an improvement!
 
 >```bash
 >#!/usr/bin/env bash
@@ -97,8 +96,29 @@ With a little more prompting, ChatGPT gave me a better answer:
 >done
 >
 >...
+> <more code>
 >```
 
-Nice! That works much better. It also grabbed the post date from the frontmatter specifically, which is better than what I was doing before. Stylistically, I don't like to echo something into `sed` (not sure why...), so I updated the script to instead feed the post frontmatter to stdin for `sed` to use, but otherwise, this worked! Ship it!
+## The letdown
 
-After my success using ChatGPT for this, I was also inspired to have ChatGPT edit this script, as well as the [`create-post` script](https://github.com/shanamatthews/static-site-generator/blob/main/create-post) to print out error messages when something goes wrong. I'd been too lazy to do this and ChatGPT made it really easy.
+However, upon testing out the script, I realized that ChatGPT was actually pretty wrong. The first for loop in the script where ChatGPT made changes is actually only used to create an array of posts to be sorted by date, which is used to create the the latest post preview on the homepage.
+
+ChatGPT seemed to "know" this in its description of what the script does. Remember this paragraph?
+
+> The script iterates over each Markdown file in the current directory and its subdirectories. For each file, it extracts the file name and directory, determines whether it is the homepage, posts page, or a regular page, and generates the corresponding HTML code using pandoc. The assets-folder variable is set to assets for pages in the current directory, and ../assets for pages in subdirectories.
+
+But when it came to editing the script, ChatGPT seemed to forget and fixate only on the first for loop. Excluding drafts from the first for loop meant that draft posts wouldn't be candidates for being the preview post on the homepage and wouldn't be added to the my list of posts on the [posts index page](https://shana.codes/posts/) (yay, good) but they were still **built into html pages and published** (boo, bad).
+
+This mistake feels odd, because I specifically asked that we **don't generate an html file for draft posts**, but I didn't mention anything about listing draft posts on the posts index page.
+
+As a person who writes code, I'm used to feeling like computers are [maliciously compliant](https://en.wikipedia.org/wiki/Malicious_compliance). The code I write does exactly what I wrote it to do, regardless of what I actually wanted. Here, it felt like ChatGPT understood what I *wanted*, but didn't do what I told it to do.
+
+Ok, no more anthropomorphizing ChatGPT. It's just a [dumb LLM probabilistically spitting out words at me](https://writings.stephenwolfram.com/2023/02/what-is-chatgpt-doing-and-why-does-it-work/).
+
+I came away from this feeling disappointed and like my Bash script needed a little refactoring to be easier for future me and for LLMs to understand.
+
+Did I do that? No 😂 However, I **did** [add the drafts post feature](https://github.com/shanamatthews/static-site-generator/commit/c7a1b9b4840b24448db21cad44a452059e09e435) by keeping the code to skip posts in the first for loop and building posts within that first for loop instead of the second.
+
+## Small redemption
+
+After my failure using ChatGPT for this, I still wanted to try getting ChatGPT to do something useful. I ended up having it edit my [`build` script](https://github.com/shanamatthews/static-site-generator/blob/main/build) and my [`create-post` script](https://github.com/shanamatthews/static-site-generator/blob/main/create-post) to print out error messages when something goes wrong. I'd been too lazy to do this and ChatGPT did a good job on this super simple task.
