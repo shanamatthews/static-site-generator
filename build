@@ -10,6 +10,7 @@ for post in $(ls -t posts/*.md); do
 
     # skip if draft
     if [[ ${post_fm} == *"draft: true"* ]]; then
+      echo "Skipping draft ${post}"
       continue
     fi
 
@@ -19,9 +20,16 @@ for post in $(ls -t posts/*.md); do
       continue
     fi
 
+    output_name=
+
     post_name=$(basename $post)
+    output_name=${post_name%*.md}
     post_name="${post_date}_${post_name}"
     unsorted_posts+=(${post_name})
+
+    pandoc -s "${post}" -o "posts/${output_name}.html" --template assets/template.html \
+      --variable assets-folder="../assets" || \
+    echo "Error: failed to build ${md}"
   fi
 done
 
@@ -33,7 +41,7 @@ declare -a latest_posts
 for post in ${sorted_posts[*]}; do
   name_to_add="${post/*_/}"
   name_to_add="${name_to_add%.md}"
-  echo ${name_to_add}
+#  echo ${name_to_add}
   latest_posts+=("--variable latest-posts=${name_to_add%*.md}")
 done
 
@@ -41,12 +49,10 @@ echo "${sorted_posts[0]}"
 latest_post="${sorted_posts[0]/*_/}"
 latest_post_text="$(pandoc posts/${latest_post} --template assets/post-preview-template.html --variable post-link=${latest_post%.md})"
 
-
 for md in **/*.md; do
   dir=$(dirname $md)
   filename=$(basename $md)
   filename=${filename%*.md}
-  echo "building ${md}"
 
   assets_folder="assets"
 
@@ -61,6 +67,7 @@ for md in **/*.md; do
 
   # build homepage
   if [[ ${md} == "index.md" ]]; then
+    echo "building ${md}"
     pandoc -s "${md}" -o "${dir}"/index.html --template assets/template.html \
       --variable assets-folder="${assets_folder}" \
       --variable post-preview="${latest_post_text}"
@@ -69,6 +76,7 @@ for md in **/*.md; do
 
   # build posts page
   if [[ ${md} == "posts/index.md" ]]; then
+    echo "building ${md}"
     pandoc -s "${md}" -o "${dir}"/index.html --template assets/template.html \
       --variable assets-folder="${assets_folder}" \
       ${latest_posts[*]} || \
@@ -76,7 +84,13 @@ for md in **/*.md; do
     continue
   fi
 
+  # posts already built
+  if [[ ${dir} == "posts" ]]; then
+    continue
+  fi
+
   # all other pages
+  echo "building ${md}"
   pandoc -s "${md}" -o "${dir}"/${filename}.html --template assets/template.html \
     --variable assets-folder="${assets_folder}" || \
     echo "Error: failed to build ${md}"
