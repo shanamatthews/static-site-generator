@@ -20,8 +20,6 @@ for post in $(ls -t posts/*.md); do
       continue
     fi
 
-    output_name=
-
     post_name=$(basename $post)
     output_name=${post_name%*.md}
     post_name="${post_date}_${post_name}"
