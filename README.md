@@ -8,4 +8,6 @@ You can preview this locally with my [`preview`](https://github.com/shanamatthew
 
 This is hosted using [Azure Static Webapps](https://learn.microsoft.com/azure/static-web-apps/getting-started?tabs=vanilla-javascript) because it's free 🎉 and uses the associated GitHub plugin for CI/CD.
 
+Posts with `draft: true` in the frontmatter will be ignored by the build script.
+
 Idea inspired by [rwxrob](https://github.com/rwxrob/).

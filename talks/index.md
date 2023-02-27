@@ -4,7 +4,7 @@ author: 'Shana'
 keywords: [reading]
 ---
 
-I enjoy a bit of public speaking now and again. Here are links to slides and recordings (where possible) of some speaking I've done.
+I enjoy a bit of public speaking now and again. Here are links to slides and recordings (where possible) of some talks I've done.
 
 ## Talks
 
