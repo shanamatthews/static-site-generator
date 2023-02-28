@@ -54,4 +54,4 @@ Books:
 - [paused] [Spare](https://openlibrary.org/works/OL29240850W/Spare)
 - [paused] [Unsettled Ground](https://openlibrary.org/works/OL25758323W/Unsettled_Ground)
 - [finished] [Legends & Lattes](https://openlibrary.org/works/OL27591348W). Wow, this was so cute. a really cozy, easy read, which is just what I needed. ⭐️⭐️⭐️⭐️⭐️
-- [finished] [Tales from the Hinterland](Tales from the Hinterland). A companion book to a series I've liked recently ([The Hazel Wood](https://openlibrary.org/works/OL19730066W/The_Hazel_Wood?edition=key%3A/books/OL26943167M)). Creepy short stories, took me a while to get through. ⭐️⭐️⭐️
+- [finished] [Tales from the Hinterland](https://openlibrary.org/works/OL20868276W/Tales_from_the_Hinterland?edition=key%3A/books/OL38807224M). A companion book to a series I've liked recently ([The Hazel Wood](https://openlibrary.org/works/OL19730066W/The_Hazel_Wood?edition=key%3A/books/OL26943167M)). Creepy short stories, took me a while to get through. ⭐️⭐️⭐️
