@@ -22,5 +22,5 @@ Fun facts about me:
 - GitHub: [\@shanamatthews](https://github.com/shanamatthews)
 - I don't tweet a lot, but my Twitter handle is [\@shanamatthews](https://twitter.com/shanamatthews).
 - [LinkedIn](https://www.linkedin.com/in/shana-matthews/)
-- <a rel="me" href="https://mastodon.social/@shanacodes">Mastodon</a>
+- <a rel="me" href="https://hachyderm.io/@shanacodes">Mastodon</a>
 - Or, shoot me an email at [shana@shana.codes](mailto:shana@shana.codes).
