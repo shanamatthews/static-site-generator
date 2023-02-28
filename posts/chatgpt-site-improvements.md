@@ -66,7 +66,7 @@ Here was it's response:
 >done
 >
 >...
-> <more code>
+> <unmodified code>
 >```
 
 At first glance, this looked kinda right! I didn't like that it wasn't actually checking the frontmatter, as instructed. By using `grep` in this way, the script would skip the file if "draft: true" appeared anywhere in the post, not just in the frontmatter. It's not likely that I'd write that phrase *outside* of the frontmatter, but I'd rather not run into that weird and confusing bug later.
@@ -96,7 +96,7 @@ I was pretty optimistic at this point. I fiddled with ChatGPT a little more unti
 >done
 >
 >...
-> <more code>
+> <unmodified code>
 >```
 
 ## The letdown
