@@ -45,7 +45,7 @@ This is still a work in progress. Hopefully more updates next week!
 
 Articles I liked this week:
 
-- [Regex crossword](https://regexcrossword.com/), not an article, but you'll like it. real nerds do their crosswords with regex
+- [Regex crossword](https://regexcrossword.com/), not an article, but you'll like it. I've been really into crosswords lately, but I super suck at crosswords. Cultural references from the 80s just aren't my thing. This is better.
 
 Books:
 
