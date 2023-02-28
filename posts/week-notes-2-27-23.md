@@ -19,7 +19,7 @@ This is mostly because of some health stuff that came up early in January and I'
 
 ### This website
 
-Read my [writeup on adding a new feature to this site](./chatgpt-site-improvements.html) with the "help" of ChatGPT.
+Read my [writeup on adding a new feature to this site](https://shana.codes/posts/chatgpt-site-improvements.html) with the "help" of ChatGPT.
 
 ### ClippyGPT
 

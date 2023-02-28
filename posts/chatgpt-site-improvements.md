@@ -7,7 +7,7 @@ date: 2023-02-27
 
 I'm really proud of myself for creating this site with my own static site generator [written with just Bash scripts](./static-site-generator-with-bash.html). I think it's sick and it aligns with my stance on not needing a framework or even a "real" programming language to do every single thing.
 
-However the reality is... I'm not so great at Bash scripting. I don't use Bash regularly at work, or even in personal projects, so whenever I want to go in to make tweaks to this site, I always feel super rusty and it takes ages to remember how this simple project works.
+However the reality is... I'm very mediocre at Bash scripting. I don't use Bash regularly at work, or even in personal projects, so whenever I want to go in to make tweaks to this site, I always feel super rusty and it takes ages to remember how this simple project works.
 
 I'd been wanting to add a tiny new "features" allowing me to have draft posts in the site without publishing them (aka generating an html page for them), but had been putting it off because I knew I'd have to wrap my brain around my messy Bash scripts again.
 
