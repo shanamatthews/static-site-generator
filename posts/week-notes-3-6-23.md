@@ -14,11 +14,11 @@ It's my birthday this week and I'm also in India for a wedding!
 
 ## Projects
 
-I've been in a personal-projects slump recently, as evidenced by my GitHub activity chart, yikes.
+I'm literally in India right now, so not exactly getting things done [(GTD®)][1], but here's some stuff I've thought about since last week.
 
-![A mediocre GitHub contributions graph](../images/github-dots.png)
+### WebContainers
 
-This is mostly because of some health stuff that came up early in January and I'm still dealing with. However, I've been doing better over the last couple of weeks and I've found some energy and excitement to start playing around, particularly with ChatGPT-related things.
+(https://shana.codes/posts/webcontainers.html)
 
 ### This website
 
@@ -57,3 +57,5 @@ Books:
 - [paused] [Unsettled Ground](https://openlibrary.org/works/OL25758323W/Unsettled_Ground)
 - [finished] [Legends & Lattes](https://openlibrary.org/works/OL27591348W). Wow, this was so cute. a really cozy, easy read, which is just what I needed. ⭐️⭐️⭐️⭐️⭐️
 - [finished] [Tales from the Hinterland](https://openlibrary.org/works/OL20868276W/Tales_from_the_Hinterland?edition=key%3A/books/OL38807224M). A companion book to a series I've liked recently ([The Hazel Wood](https://openlibrary.org/works/OL19730066W/The_Hazel_Wood?edition=key%3A/books/OL26943167M)). Creepy short stories, took me a while to get through. ⭐️⭐️⭐️
+
+[1]: this is a really stupid non-joke for myself. I'm not a fan of commoditized productivity systems like [the GTD method](https://gettingthingsdone.com/)
