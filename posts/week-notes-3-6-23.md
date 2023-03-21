@@ -29,7 +29,6 @@ Books:
 - [in-progress] [Moby Dick](https://openlibrary.org/works/OL21501229W/Moby_Dick?edition=ia%3Amobydick0000melv_c9t5)
 - [paused] [Spare](https://openlibrary.org/works/OL29240850W/Spare)
 - [paused] [Unsettled Ground](https://openlibrary.org/works/OL25758323W/Unsettled_Ground)
-- [finished] [Modern Technical Writing](https://openlibrary.org/works/OL27309148W/Modern_Technical_Writing). Very short and practical. An easy read to start to feel prepared for a role on a docs team. ⭐️⭐️⭐️⭐️⭐️
 - [finished] [The Summer I Turned Pretty](https://openlibrary.org/works/OL5819962W/The_Summer_I_Turned_Pretty?edition=key%3A/books/OL17029559M). Listened to this one on the plane back from India. It wasn't good, but it was fluffy and sweet. ⭐️⭐️⭐️
 - [finished] [By Blood](https://openlibrary.org/works/OL16239773W/By_blood?edition=ia%3Abyblood0000ullm_u3v1). I listened to this audiobook while being driven between cities in north India. It was odd, but I enjoyed it. Based on the contents, it felt like the author herself might be gay and Jewish... ⭐️⭐️⭐️
 - [finished], [reread] [Return of the King](https://openlibrary.org/works/OL27516W/The_Return_of_the_King?edition=ia%3Aleretourduroi0000tolk). Oof, this is the sloggiest of the trilogy. A book club read that I'm rereading for the first time since I was a kid. ⭐️⭐️⭐️
