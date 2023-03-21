@@ -32,6 +32,14 @@ My posts folder is getting really messy, so I was trying to edit the bash script
 
 ## Consuming
 
+### Nature
+
+I live about 5 minutes away from a local park with a pond which I rarely go to, which is such a waste. There are a lot of things I don't love about my house, but one of them was how much it feels like it's in nature, despite being very much in town.
+
+Inspired by the Huberman Lab podcast, I've been trying to take short morning walks to that pond and just sit and absorb morning sunlight for a while. It turns out, I love it! Who would have guessed. Here is a suspiciously friendly duck that was probably looking for some food:
+
+![A very friendly duck](../images/pond.jpg)
+
 ### Articles I liked this week
 
 - [Automatic Machine Knitting of 3D Meshes](https://textiles-lab.github.io/publications/2018-autoknit/). Highly relevant to my interests. Is there code I can run? I haven't dug in enough to find it yet.
