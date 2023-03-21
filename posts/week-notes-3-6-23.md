@@ -12,7 +12,7 @@ It's my birthday this week 🧁 and I'm also in India for a wedding!
 
 ## Projects
 
-I'm literally in India right now, so not exactly getting things done GTD®[^1], but here's some things I liked while I was traveling:
+I'm literally in India right now, so not exactly getting things done (GTD®[^1]), but here's some things I liked while I was traveling:
 
 ## Reading
 
@@ -22,7 +22,7 @@ Articles I liked this week:
 
 Books:
 
-- [in-progress] [Never Bet Against Occam](https://openlibrary.org/works/OL20811242W/Never_Bet_Against_Occam). Reading this to learn more about mastocytosis :/
+- [in-progress] [Never Bet Against Occam](https://openlibrary.org/works/OL20811242W/Never_Bet_Against_Occam). Reading this to learn more about mastocytosis :(
 - [in-progress] [My Grandmother's Hands](https://openlibrary.org/works/OL19718843W/My_grandmother%27s_hands?edition=ia%3Amygrandmothersha0000mena)
 - [in-progress] [Moby Dick](https://openlibrary.org/works/OL21501229W/Moby_Dick?edition=ia%3Amobydick0000melv_c9t5)
 - [paused] [Spare](https://openlibrary.org/works/OL29240850W/Spare)
