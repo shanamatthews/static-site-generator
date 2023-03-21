@@ -43,7 +43,7 @@ for post in ${sorted_posts[*]}; do
   latest_posts+=("--variable latest-posts=${name_to_add%*.md}")
 done
 
-echo "${sorted_posts[0]}"
+echo "Homepage post: ${sorted_posts[0]}"
 latest_post="${sorted_posts[0]/*_/}"
 latest_post_text="$(pandoc posts/${latest_post} --template assets/post-preview-template.html --variable post-link=${latest_post%.md})"
 
@@ -83,7 +83,7 @@ for md in **/*.md; do
   fi
 
   # posts already built
-  if [[ ${dir} == "posts" ]]; then
+  if [[ ${dir} == *"posts"* ]]; then
     continue
   fi
 
