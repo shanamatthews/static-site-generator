@@ -3,7 +3,7 @@
 shopt -s globstar
 
 declare -a unsorted_posts
-for post in $(ls -t posts/*.md); do
+for post in $(ls -t posts/**/*.md); do
   if [[ $post != "posts/index.md" ]]; then
     # get the front matter
     post_fm=$(sed -n '/^---$/,/^---$/p' "${post}")
@@ -20,9 +20,15 @@ for post in $(ls -t posts/*.md); do
       continue
     fi
 
+    echo "post orig name: ${post}"
+    file_location=${post}
+
     post_name=$(basename $post)
+    echo "post_name ${post_name}"
     output_name=${post_name%*.md}
+    echo "output_name ${output_name}"
     post_name="${post_date}_${post_name}"
+    echo "post_name with date ${post_name}"
     unsorted_posts+=(${post_name})
 
     pandoc -s "${post}" -o "posts/${output_name}.html" --template assets/template.html \
@@ -37,9 +43,11 @@ unset IFS
 
 declare -a latest_posts
 for post in ${sorted_posts[*]}; do
+  #echo "name_to_add 0: ${post}"
   name_to_add="${post/*_/}"
+  #echo "name_to_add 1: ${name_to_add}"
   name_to_add="${name_to_add%.md}"
-#  echo ${name_to_add}
+  #echo "name_to_add 2: ${name_to_add}"
   latest_posts+=("--variable latest-posts=${name_to_add%*.md}")
 done
 
