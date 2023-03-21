@@ -10,8 +10,6 @@ Week notes! Week notes!
 
 It's my birthday this week 🧁 and I'm also in India for a wedding!
 
---- edit the below
-
 ## Projects
 
 I'm literally in India right now, so not exactly getting things done [(GTD®)][1], but here's some things I liked while I was traveling:
