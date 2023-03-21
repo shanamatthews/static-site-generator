@@ -12,7 +12,7 @@ It's my birthday this week 🧁 and I'm also in India for a wedding!
 
 ## Projects
 
-I'm literally in India right now, so not exactly getting things done [(GTD®)][1], but here's some things I liked while I was traveling:
+I'm literally in India right now, so not exactly getting things done GTD®[^1], but here's some things I liked while I was traveling:
 
 ## Reading
 
@@ -31,4 +31,4 @@ Books:
 - [finished] [By Blood](https://openlibrary.org/works/OL16239773W/By_blood?edition=ia%3Abyblood0000ullm_u3v1). I listened to this audiobook while being driven between cities in north India. It was odd, but I enjoyed it. Based on the contents, it felt like the author herself might be gay and Jewish... ⭐️⭐️⭐️
 - [finished], [reread] [Return of the King](https://openlibrary.org/works/OL27516W/The_Return_of_the_King?edition=ia%3Aleretourduroi0000tolk). Oof, this is the sloggiest of the trilogy. A book club read that I'm rereading for the first time since I was a kid. ⭐️⭐️⭐️
 
-[1]: this is a really stupid non-joke for myself. I'm not a fan of commoditized productivity systems like [the GTD method](https://gettingthingsdone.com/)
+[^1]: this is a really stupid non-joke for myself. I'm not a fan of commoditized productivity systems like [the GTD method](https://gettingthingsdone.com/)
