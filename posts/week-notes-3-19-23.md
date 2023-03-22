@@ -6,7 +6,7 @@ date: 2023-03-19
 draft: false
 ---
 
-I'm back from India! The trip went surprisingly well health-wise. I did have to take 7 (yes, SEVEN) different medications for my allergies/MCAS, but I didn't have any major issues and didn't get sick, so, huge win.
+I'm back from India! The trip went surprisingly well health-wise. I did have to take 7 (yes, SEVEN) different medications for my allergies/mast cell disorder, but I didn't have any major issues and didn't get sick, so, huge win.
 
 ## Working
 
