@@ -13,9 +13,9 @@ I enjoy a bit of public speaking now and again. Here are links to slides and rec
 |Understanding the Performance Impact of Generated JavaScript|Feb 2023|[DeveloperWeek 2023](https://www.developerweek.com/events/)|[slides](https://github.com/shanamatthews/talks/blob/main/DeveloperWeek%202023.pdf)|
 |Coinbase Wallet or NGMI|May 2022|[HackMoney 2022](https://hackathon.money/)|[recording](https://www.youtube.com/watch?v=pS-6aIPOyMg&ab_channel=ETHGlobal)|
 |"Hello, World!" in 3 Languages|Mutltiple at Microsoft 1st party conferences. |[Build 2020](https://learn.microsoft.com/en-us/events/build-2020/), [Fall Ignite 2020](https://news.microsoft.com/ignite-2020-book-of-news/), [Start Dev Change](https://learn.microsoft.com/en-us/events/start-dev-change-start-dev-change/), [Spring Ignite 2021](https://learn.microsoft.com/en-us/events/ignite-mar-2021/)|[slides](https://github.com/shanamatthews/talks/blob/main/hello-world-3-langugages.pdf), [recording](https://www.youtube.com/watch?v=a0skgSKouUA&ab_channel=MicrosoftDeveloper)|
-|2-day intro to AI workshop (it was titled "Intro to AI with Shana Matthews" lol|September 2019|[Microsoft Reactor, Sydney](https://developer.microsoft.com/en-us/reactor/)|[slides](https://github.com/shanamatthews/talks/blob/main/ai-workshop.pdf)|
+|2-day intro to AI workshop (titled "Intro to AI with Shana Matthews" lol)|September 2019|[Microsoft Reactor, Sydney](https://developer.microsoft.com/en-us/reactor/)|[slides](https://github.com/shanamatthews/talks/blob/main/ai-workshop.pdf)|
 |Intro to GitHub|May 2019|[Build 2019](https://insider.windows.com/en-us/articles/microsoft-build-2019-sessions)|[slides](https://github.com/shanamatthews/talks/blob/main/build_github.pdf)|
-|AI - opportunity and responsibility|July 2018|[ICISTS](http://www.icists.org/)|[slides](https://github.com/shanamatthews/talks/blob/main/KAIST_final.pdf)|
+|AI: opportunity and responsibility|July 2018|[ICISTS](http://www.icists.org/)|[slides](https://github.com/shanamatthews/talks/blob/main/KAIST_final.pdf)|
 |Tips for live coding|February 2019|Microsoft Student Partner Summit 2019|[slides](https://github.com/shanamatthews/talks/blob/main/live_coding_tips.pdf)|
 
 ## Livestreams
