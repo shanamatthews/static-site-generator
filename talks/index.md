@@ -30,7 +30,7 @@ I enjoy a bit of public speaking now and again. Here are links to slides and rec
 
 All scripted & recorded by me.
 
-- [What is Continuous Profiling](https://www.youtube.com/watch?v=ZR62MvVdu50&ab_channel=Sentry)
+- [What is Continuous Profiling?](https://www.youtube.com/watch?v=ZR62MvVdu50&ab_channel=Sentry)
 - [What is Linux?](https://www.youtube.com/watch?v=jx5I-8_arqM&ab_channel=WindowsDeveloper)
 - [What is Bash and why would I use it?](https://www.youtube.com/watch?v=ig5y1nwylSU&ab_channel=WindowsDeveloper)
 - [How do I start learning C C++ on Windows?](https://www.youtube.com/watch?v=EWmKmwogfh4&ab_channel=WindowsDeveloper)
