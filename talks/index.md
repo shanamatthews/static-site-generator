@@ -10,6 +10,7 @@ I enjoy a bit of public speaking now and again. Here are links to slides and rec
 
 |Title|Date|Event|Resources|
 |-|-|-|-|
+|Continuous Profiling in Python|(Upcoming) April 2023|[PyCon US 2023](https://us.pycon.org/2023/schedule/presentation/153/)|coming soon|
 |Understanding the Performance Impact of Generated JavaScript|Feb 2023|[DeveloperWeek 2023](https://www.developerweek.com/events/)|[slides](https://github.com/shanamatthews/talks/blob/main/DeveloperWeek%202023.pdf)|
 |Coinbase Wallet or NGMI|May 2022|[HackMoney 2022](https://hackathon.money/)|[recording](https://www.youtube.com/watch?v=pS-6aIPOyMg&ab_channel=ETHGlobal)|
 |"Hello, World!" in 3 Languages|Mutltiple at Microsoft 1st party conferences. |[Build 2020](https://learn.microsoft.com/en-us/events/build-2020/), [Fall Ignite 2020](https://news.microsoft.com/ignite-2020-book-of-news/), [Start Dev Change](https://learn.microsoft.com/en-us/events/start-dev-change-start-dev-change/), [Spring Ignite 2021](https://learn.microsoft.com/en-us/events/ignite-mar-2021/)|[slides](https://github.com/shanamatthews/talks/blob/main/hello-world-3-langugages.pdf), [recording](https://www.youtube.com/watch?v=a0skgSKouUA&ab_channel=MicrosoftDeveloper)|
