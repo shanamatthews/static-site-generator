@@ -6,29 +6,21 @@ date: 2023-03-27
 draft: true
 ---
 
+## Producing
 
+### Work
 
-## Working
+### Experiments
 
-
-
-## Experimenting
-
-### This website
+#### This website
 
 My posts folder is getting really messy, so I was trying to edit the bash script so it could accept nested post folders. I spent longer than 30 min on it without success, which I think means its time to move on to rewriting this thing in a more sane language, like Go.
 
-### ClippyGPT
+#### ClippyGPT
 
 
 
-### Microsoft Loop
-
-
-## Producing
-
-- [in-progress] "What is OpenTelemetry" article with another DevRel person from GCP.
-- [paused] Dreaming of finishing my Profiling 101 series (someday 💭)
+#### Microsoft Loop
 
 ## Consuming
 
