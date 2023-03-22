@@ -20,7 +20,6 @@ Fun facts about me:
 
 - [My resume (not up to date)](./resume.pdf)
 - GitHub: [\@shanamatthews](https://github.com/shanamatthews)
-- I don't tweet a lot, but my Twitter handle is [\@shanamatthews](https://twitter.com/shanamatthews).
 - [LinkedIn](https://www.linkedin.com/in/shana-matthews/)
-- <a rel="me" href="https://hachyderm.io/@shanacodes">Mastodon</a>
+- I am no longer on Twitter, find me on <a rel="me" href="https://hachyderm.io/@shanacodes">Mastodon</a>
 - Or, shoot me an email at [shana@shana.codes](mailto:shana@shana.codes).
