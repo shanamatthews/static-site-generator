@@ -8,26 +8,28 @@ draft: false
 
 I'm back from India! The trip went surprisingly well health-wise. I did have to take 7 (yes, SEVEN) different medications for my allergies/mast cell disorder, but I didn't have any major issues and didn't get sick, so, huge win.
 
-## Working
+## Producing
 
-I... am joining the docs team at Sentry! I've been on the DevRel team under marketing, which increasingly doesn't feel like the right fit given my hesitations about traveling and being a public figure. I'll be a documentation engineer, focused on making [Sentry's docs](https://docs.sentry.io/) great, both in terms of platform and content. My first day on the team will be 4/3. More to come soon!
+### Work
 
-## Experimenting
+I... am joining the docs team at Sentry! I've been on the DevRel team under marketing, which increasingly doesn't feel like the right fit given my hesitations about traveling and being a public figure. My new role will be a documentation engineer, focused on making [Sentry's docs](https://docs.sentry.io/) great, both in terms of platform and content. My first day on the team will be 4/3. More to come soon!
 
-### ClippyGPT
+### Writing
+
+- [in-progress] "What is OpenTelemetry" article with another DevRel person from GCP.
+- [paused] Dreaming of finishing my [Profiling 101 series](https://blog.sentry.io/2023/02/07/profiling-101-what-is-profiling/) (someday 💭)
+
+### Experiments
+
+#### ClippyGPT
 
 Definitely want to come back to [this](https://supabase.com/blog/chatgpt-supabase-docs) but currently paused as I transition back from vacation.
 
-### Microsoft Loop
+#### Microsoft Loop
 
 I finally got access to [Loop](https://loop.microsoft.com/) as well as ["New Bing"](https://www.bing.com/new), but I'm weirdly over AI stuff right now. Its been dominating all the media so I'm not even playing with it. Instead, I'm checking out Microsoft's new [Notion](https://notion.so/) clone. I love Notion, so very curious how Loop stacks up.
 
 It seems pretty on-par, other than Notion databases, which are arguably the best part of Notion. However, Loop's tables may be doing more than I'm giving them credit for. Need to explore further.
-
-## Producing
-
-- [in-progress] "What is OpenTelemetry" article with another DevRel person from GCP.
-- [paused] Dreaming of finishing my Profiling 101 series (someday 💭)
 
 ## Consuming
 
