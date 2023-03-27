@@ -11,3 +11,5 @@ This is hosted using [Azure Static Webapps](https://learn.microsoft.com/azure/st
 Posts with `draft: true` in the frontmatter will be ignored by the build script.
 
 Idea inspired by [rwxrob](https://github.com/rwxrob/).
+
+test pr template
