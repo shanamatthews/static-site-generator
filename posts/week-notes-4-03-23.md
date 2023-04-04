@@ -16,7 +16,7 @@ My very first project on the team was to implement a PR template for the repo wi
 
 ### Life
 
-I perform with the [Seattle Labor Chorus](https://seattlelaborchorus.org/) and we had our annual concert this weekend on April 1st! It was a blast, and I got to sing a duet with a fellow chorus member, performing Joe Jencks' [Rise As One](https://www.youtube.com/watch?v=A69eP-kiARk&ab_channel=JoeJencks-Topic). YouTube link to some shortly (if I remember).
+I perform with the [Seattle Labor Chorus](https://seattlelaborchorus.org/) and we had our annual concert this weekend on April 1st! It was a blast, and I got to sing a duet with a fellow chorus member, performing Joe Jencks' [Rise As One](https://www.youtube.com/watch?v=A69eP-kiARk&ab_channel=JoeJencks-Topic). YouTube link to the concert recording some shortly (if I remember).
 
 ### Experiments
 
