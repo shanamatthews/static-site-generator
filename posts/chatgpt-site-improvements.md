@@ -5,7 +5,7 @@ keywords: [no, nothing]
 date: 2023-02-27
 ---
 
-I'm really proud of myself for creating this site with my own static site generator [written with just Bash scripts](./static-site-generator-with-bash.html). I think it's sick and it aligns with my stance on not needing a framework or even a "real" programming language to do every single thing.
+I'm really proud of myself for creating this site with my own static site generator [written with just Bash scripts](https://shana.codes/posts/static-site-generator-with-bash.html). I think it's sick and it aligns with my stance on not needing a framework or even a "real" programming language to do every single thing.
 
 However the reality is... I'm very mediocre at Bash scripting. I don't use Bash regularly at work, or even in personal projects, so whenever I want to go in to make tweaks to this site, I always feel super rusty and it takes ages to remember how this simple project works.
 
