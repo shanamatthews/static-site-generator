@@ -53,7 +53,7 @@ featured_post="chatgpt-site-improvements.md"
 # latest_post_text="$(pandoc posts/${latest_post} --template assets/post-preview-template.html --variable post-link=${latest_post%.md})"
 
 featured_post_text="$(pandoc posts/${featured_post} --template assets/post-preview-template.html --variable post-link=${featured_post%.md})"
-echo "${featured_post_text}"
+# echo "${featured_post_text}"
 
 for md in **/*.md; do
   dir=$(dirname $md)
