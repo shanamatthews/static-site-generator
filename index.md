@@ -4,4 +4,4 @@ author: 'Shana'
 keywords: [nothing, nothingness]
 ---
 
-## Latest post:
+## Featured post:

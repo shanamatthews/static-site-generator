@@ -2,6 +2,7 @@
 
 shopt -s globstar
 
+# get array of all posts, also used to pick latest post for home page
 declare -a unsorted_posts
 for post in $(ls -t posts/*.md); do
   if [[ $post != "posts/index.md" ]]; then
@@ -31,6 +32,7 @@ for post in $(ls -t posts/*.md); do
   fi
 done
 
+# sort all posts by created date, also used to get latest post
 declare -a sorted_posts
 IFS=$'\n' sorted_posts=($(sort -r <<< ${unsorted_posts[*]}))
 unset IFS
@@ -43,9 +45,15 @@ for post in ${sorted_posts[*]}; do
   latest_posts+=("--variable latest-posts=${name_to_add%*.md}")
 done
 
-echo "${sorted_posts[0]}"
-latest_post="${sorted_posts[0]/*_/}"
-latest_post_text="$(pandoc posts/${latest_post} --template assets/post-preview-template.html --variable post-link=${latest_post%.md})"
+# don't use latest post, use featured post instead
+featured_post="chatgpt-site-improvements.md"
+
+# latest_post="${sorted_posts[0]/*_/}"
+# echo "${latest_post}"
+# latest_post_text="$(pandoc posts/${latest_post} --template assets/post-preview-template.html --variable post-link=${latest_post%.md})"
+
+featured_post_text="$(pandoc posts/${featured_post} --template assets/post-preview-template.html --variable post-link=${featured_post%.md})"
+echo "${featured_post_text}"
 
 for md in **/*.md; do
   dir=$(dirname $md)
@@ -68,7 +76,7 @@ for md in **/*.md; do
     echo "building ${md}"
     pandoc -s "${md}" -o "${dir}"/index.html --template assets/template.html \
       --variable assets-folder="${assets_folder}" \
-      --variable post-preview="${latest_post_text}"
+      --variable post-preview="${featured_post_text}"
     continue
   fi
 
