@@ -4,7 +4,7 @@ author: 'Shana'
 keywords: [nothing, nothingness]
 ---
 
-I'm a software engineer and writer, currently at [Sentry](https://sentry.io/) who cares about making tools simple and documentation awesome.
+I'm a software engineer and writer, currently at [Sentry](https://sentry.io/welcome) who cares about making tools simple and documentation awesome.
 
 <!-- I like to think of myself as half developer, half librarian -->
 
