@@ -1,22 +1,20 @@
 ---
-title: week-notes-4-3-23
+title: week-notes-5-16-23
 author: Shana
 keywords: [no, nothing]
-date: 2023-04-03
-draft: false
+date: 2023-05-16
+draft: true
 ---
 
 ## Producing
 
 ### Work
 
-Today was my first "official" day as a Documentation Engineer at Sentry! I'm currently working on wrapping my head around our very old Gatsby docs site that we host on Vercel and familiarizing myself with the (long) list of complaints about it.
-
-My very first project on the team was to implement a PR template for the repo with "pre-merge checklist" to try to convince employees to get a review from our technical writers before merging their docs PRs. The team is hesitant to gate PRs on our review more formally, but I think we're going to need to. ~60% of employees are just deleting the checklist when they create the PR :/
+Whew, I'm so behind on week notes!
 
 ### Life
 
-I perform with the [Seattle Labor Chorus](https://seattlelaborchorus.org/) and we had our annual concert this weekend on April 1st! It was a blast, and I got to sing a duet with a fellow chorus member, performing Joe Jencks' [Rise As One](https://www.youtube.com/watch?v=A69eP-kiARk&ab_channel=JoeJencks-Topic). YouTube link to the [concert recording is here!](https://www.youtube.com/watch?v=xiGbI0NkV2M) I remembered!
+I perform with the [Seattle Labor Chorus](https://seattlelaborchorus.org/) and we had our annual concert this weekend on April 1st! It was a blast, and I got to sing a duet with a fellow chorus member, performing Joe Jencks' [Rise As One](https://www.youtube.com/watch?v=A69eP-kiARk&ab_channel=JoeJencks-Topic). YouTube link to the concert recording some shortly (if I remember).
 
 ### Experiments
 
