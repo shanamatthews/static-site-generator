@@ -6,11 +6,15 @@ date: 2023-05-16
 draft: true
 ---
 
+Whew, I'm so behind on week notes!
+
 ## Producing
 
 ### Work
 
-Whew, I'm so behind on week notes!
+Things are going well in the new docs eng role. I've been spending mots of my time working with another engineer at the company to upgrade our docs site from Gatsby 2.x to Gatsby 5. We've made it to Gatsby 4 so far but it has been anything but painless. 
+
+Our site has some hacked together custom Gatsby plugins
 
 ### Life
 
