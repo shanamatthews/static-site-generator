@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+if [[ $# -eq 0 ]]; then
+  echo "Error: you didn't include a title"
+  echo "Usage: $0 <title>"
+  exit 1
+fi
+
 date=$(exec date -u +%Y-%m-%d)
 filename="posts/"
 
@@ -14,6 +20,7 @@ title: $@
 author: Shana
 keywords: [no, nothing]
 date: ${date}
+draft: true
 ---
 "
 

@@ -2,24 +2,63 @@
 
 shopt -s globstar
 
-latest_post="$(ls -1 -t posts/*.md | head -n1)"
-latest_post_link=$(basename ${latest_post%*.md})
-latest_post_text="$(pandoc ${latest_post} --template assets/post-preview-template.html --variable post-link=$latest_post_link)"
-
-declare -a latest_posts
+# get array of all posts, also used to pick latest post for home page
+declare -a unsorted_posts
 for post in $(ls -t posts/*.md); do
   if [[ $post != "posts/index.md" ]]; then
-    echo $post
+    # get the front matter
+    post_fm=$(sed -n '/^---$/,/^---$/p' "${post}")
+
+    # skip if draft
+    if [[ ${post_fm} == *"draft: true"* ]]; then
+      echo "Skipping draft ${post}"
+      continue
+    fi
+
+    post_date=$(sed -n 's/^date: //p' <<< "${post_fm}")
+    if [[ -z ${post_date} ]]; then
+      echo "Error: no date in frontmatter of ${post}"
+      continue
+    fi
+
     post_name=$(basename $post)
-    latest_posts+=("--variable latest-posts=${post_name%*.md}")
+    output_name=${post_name%*.md}
+    post_name="${post_date}_${post_name}"
+    unsorted_posts+=(${post_name})
+
+    pandoc -s "${post}" -o "posts/${output_name}.html" --template assets/template.html \
+      --variable assets-folder="../assets" || \
+    echo "Error: failed to build ${md}"
   fi
 done
+
+# sort all posts by created date, also used to get latest post
+declare -a sorted_posts
+IFS=$'\n' sorted_posts=($(sort -r <<< ${unsorted_posts[*]}))
+unset IFS
+
+declare -a latest_posts
+for post in ${sorted_posts[*]}; do
+  name_to_add="${post/*_/}"
+  name_to_add="${name_to_add%.md}"
+#  echo ${name_to_add}
+  latest_posts+=("--variable latest-posts=${name_to_add%*.md}")
+done
+
+# don't use latest post, use featured post instead
+featured_post="chatgpt-site-improvements.md"
+
+# latest_post="${sorted_posts[0]/*_/}"
+# echo "${latest_post}"
+# latest_post_text="$(pandoc posts/${latest_post} --template assets/post-preview-template.html --variable post-link=${latest_post%.md})"
+
+featured_post_text="$(pandoc posts/${featured_post} --template assets/post-preview-template.html --variable post-link=${featured_post%.md})"
+# echo "${featured_post_text}"
 
 for md in **/*.md; do
   dir=$(dirname $md)
   filename=$(basename $md)
   filename=${filename%*.md}
-  echo "building ${md}"
 
   assets_folder="assets"
 
@@ -34,22 +73,32 @@ for md in **/*.md; do
 
   # build homepage
   if [[ ${md} == "index.md" ]]; then
+    echo "building ${md}"
     pandoc -s "${md}" -o "${dir}"/index.html --template assets/template.html \
       --variable assets-folder="${assets_folder}" \
-      --variable post-preview="${latest_post_text}"
+      --variable post-preview="${featured_post_text}"
     continue
   fi
 
   # build posts page
   if [[ ${md} == "posts/index.md" ]]; then
+    echo "building ${md}"
     pandoc -s "${md}" -o "${dir}"/index.html --template assets/template.html \
       --variable assets-folder="${assets_folder}" \
-      ${latest_posts[*]} 
+      ${latest_posts[*]} || \
+      echo "Error: failed to build ${md}"
+    continue
+  fi
+
+  # posts already built
+  if [[ ${dir} == "posts" ]]; then
     continue
   fi
 
   # all other pages
+  echo "building ${md}"
   pandoc -s "${md}" -o "${dir}"/${filename}.html --template assets/template.html \
-    --variable assets-folder="${assets_folder}"
+    --variable assets-folder="${assets_folder}" || \
+    echo "Error: failed to build ${md}"
 done
 

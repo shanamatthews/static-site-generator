@@ -7,6 +7,8 @@ console.log(`%c
 \__ \ | | | (_| | | | | (_| |
 |___/_| |_|\__,_|_| |_|\__,_|
 
+ooh thx for checkin me out ;)
+
 `,'color: purple')
 
 

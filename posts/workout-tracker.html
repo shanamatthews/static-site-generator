@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Shana" />
       <meta name="date" content="2022-07-05" />
-    <meta name="keywords" content="no, nothing" />
+    <meta name="keywords" content="false, nothing" />
   <link rel="stylesheet" href=../assets/css/styles.css>
   <title>Workout Tracker</title>
   <link rel="shortcut icon" type="image/jpg"
@@ -21,25 +21,57 @@
         <li><a href="/about/">About</a></li>
         <!-- <li><a href="/contact/">Contact</a></li> -->
         <li><a href="/posts/">Posts</a></li>
+        <li><a href="/talks/">Talks</a></li>
         <li><a href="/reading/">What am I reading?</a></li>
       </ul>
     </nav>
   </header>
     <h1 class="title">Workout Tracker</h1>
       <p class="date">2022-07-05</p>
-    <p>I really enjoy working out, especially lifting weights and following a set program. One program I’d been trying for a while is called <a href="https://www.bretcontreras.store/products/strong-curves">Strong Curves</a> (cheesy, I know… they all have crap names). The program is highly structured, with each day following the same format, alternating between different exercises that all fit into certain categories.</p>
-    <p>I’d been wanting to write my own workout tracker for a while and the format of this program lends itself well to writing a templated workout tracker.</p>
-    <p>During my experiments with creating a “Zoom bookshelf” with D3, I found that I really enjoyed writing Javascript in <a href="https://observablehq.com/">Observable</a>. Observable makes Javascript feel a lot more sane to my strictly-typed brain and basically creates UX for you, as long as you were okay with the default components provided.</p>
-    <p>I’m always okay with default UX if it means I don’t have to write it, so I went ahead and created my own <a href="https://observablehq.com/collection/@shanamatthews/strong-curves-tracker">project on Observable</a>.</p>
-    <p>Right now this project is set up to store workout data in JSON and save as a GitHub Gist on my own account. I’ve actually embedded a GitHub key (with only Gist permissions!!) in the project, which is a VERY BAD IDEA™️ , please don’t do this at home.</p>
-    <p>It’s been super convenient for my development, but it means if you want to use this project for yourself, you’ll need to:</p>
+    <p>I really enjoy working out, especially lifting weights and
+    following a set program. One program I’d been trying for a while is
+    called <a
+    href="https://www.bretcontreras.store/products/strong-curves">Strong
+    Curves</a> (cheesy, I know… they all have crap names). The program
+    is highly structured, with each day following the same format,
+    alternating between different exercises that all fit into certain
+    categories.</p>
+    <p>I’d been wanting to write my own workout tracker for a while and
+    the format of this program lends itself well to writing a templated
+    workout tracker.</p>
+    <p>During my experiments with creating a “Zoom bookshelf” with D3, I
+    found that I really enjoyed writing Javascript in <a
+    href="https://observablehq.com/">Observable</a>. Observable makes
+    Javascript feel a lot more sane to my strictly-typed brain and
+    basically creates UX for you, as long as you were okay with the
+    default components provided.</p>
+    <p>I’m always okay with default UX if it means I don’t have to write
+    it, so I went ahead and created my own <a
+    href="https://observablehq.com/collection/@shanamatthews/strong-curves-tracker">project
+    on Observable</a>.</p>
+    <p>Right now this project is set up to store workout data in JSON
+    and save as a GitHub Gist on my own account. I’ve actually embedded
+    a GitHub key (with only Gist permissions!!) in the project, which is
+    a VERY BAD IDEA™️ , please don’t do this at home.</p>
+    <p>It’s been super convenient for my development, but it means if
+    you want to use this project for yourself, you’ll need to:</p>
     <ul>
     <li>Have a GitHub account</li>
-    <li>Create a Gist named “A” (please don’t judge the process) with 3 files in it named “A”, “B”, and “C” (to correspond to workout days A, B, C)</li>
-    <li><a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">Create a GitHub personal access token</a> with Gist write access</li>
-    <li>Replace my Gist url (<code>gistUrl</code>) and GitHub token (<code>ghToken</code>) with your own. These variables can be found in the <a href="https://observablehq.com/@shanamatthews/strong-curves-tracker-scripts?collection=@shanamatthews/strong-curves-tracker">Tracker Scripts notebook</a></li>
+    <li>Create a Gist named “A” (please don’t judge the process) with 3
+    files in it named “A”, “B”, and “C” (to correspond to workout days
+    A, B, C)</li>
+    <li><a
+    href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">Create
+    a GitHub personal access token</a> with Gist write access</li>
+    <li>Replace my Gist url (<code>gistUrl</code>) and GitHub token
+    (<code>ghToken</code>) with your own. These variables can be found
+    in the <a
+    href="https://observablehq.com/@shanamatthews/strong-curves-tracker-scripts?collection=@shanamatthews/strong-curves-tracker">Tracker
+    Scripts notebook</a></li>
     </ul>
-    <p>I’ve since ported (most) of this workout tracker to Svelte in my quest to be able to suck less at frontend development 😇 But that’s a story for a different post.</p>
+    <p>I’ve since ported (most) of this workout tracker to Svelte in my
+    quest to be able to suck less at frontend development 😇 But that’s
+    a story for a different post.</p>
     <p>Happy coding and go hit the gym!</p>
     </body>
 <footer>
@@ -47,6 +79,7 @@
       generator</a> (aka literally just one Bash script)</insert>
   </p>
   <p>Theme inspired by ✨<a href="https://sailorhg.github.io/fairyfloss/">sailorhg's Fairyfloss</a> ✨</p>
+  <a rel="me" href="https://hachyderm.io/@shanacodes"></a>
 </footer>
 <script src="/assets/main.js"></script>
 
