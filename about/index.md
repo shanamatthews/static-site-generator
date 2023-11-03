@@ -4,7 +4,7 @@ author: 'Shana'
 keywords: [nothing, nothingness]
 ---
 
-I'm a software engineer and developer advocate who cares about making tools simple and documentation awesome.
+I'm a ~~software engineer~~ ~~developer advocate~~ documentation engineer who cares about making developer tools simple and documentation awesome.
 
 ![](../images/headshot.jpeg)
 
