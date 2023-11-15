@@ -4,7 +4,7 @@ author: 'Shana'
 keywords: [nothing, nothingness]
 ---
 
-Regardless of job title (software engineer, developer advocate, technical writer, etc.), I've spent my entire career creating content and tools to help developers make things.
+Regardless of job title (software engineer, developer advocate, technical writer, etc.), I've spent my career creating content and tools to help developers make things.
 
 While I have experience [giving talks](../talks/index.html) and creating video content, my preference has always been for creating written content, especially tutorials and API/SDK documentation. Written content is more maintainable, flexible, and accessible than video, and frankly, more useful, in my opinion.
 
