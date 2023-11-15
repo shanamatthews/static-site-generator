@@ -3,7 +3,7 @@ html {
   font-family: Georgia, serif;
   font-size: 14px;
   color: #C2FEFF;
-  background-color: #5A5475;
+  background-color: #322f43;
 
 }
 
@@ -48,7 +48,7 @@ img {
 
 h1 {
   margin-top: 1em;
-  color: #FFC9DA;
+  color: #FFDEB5;
   text-align: center;
   font-size: 1.8em;
 }
@@ -59,7 +59,7 @@ h4,
 h5,
 h6 {
   margin-top: 1em;
-  color: #FFC9DA;
+  color: #FFDEB5;
 }
 
 h5,
@@ -87,14 +87,14 @@ blockquote {
   margin: 1em 0 1em 1.7em;
   padding-left: 1em;
   border-left: 2px solid #e6e6e6;
-  color: #FFDEB5; /* peach */
+  color: #FFC9DA;
 }
 
 code {
   font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
   font-size: 95%;
   margin: 0;
-  color: #FFDEB5; /* peach */
+  color: #FFC9DA;
 }
 
 pre {
@@ -214,7 +214,7 @@ nav {
 }
 
 .logo {
-  background-color: #8077A8;
+  background-color: #FFDEB5;
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 10px;
@@ -222,12 +222,12 @@ nav {
 }
 
 .logo a {
-  color: #FFC9DA;
+  color: #322f43;
   text-decoration: none;
 }
 
 .date {
-  color: #FFDEB5;
+  color: #C2FEFF;
 }
 
 footer {
