@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Shana" />
+    <meta name="keywords" content="nothing, nothingness" />
+  <link rel="stylesheet" href=../assets/css/styles.css>
+  <title>Portfolio</title>
+  <link rel="shortcut icon" type="image/jpg"
+  href="../assets/favicons/frog_favicon.ico" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="logo"><a href="/">Shana Matthews</a></div>
+    <nav class="header-links">
+      <ul>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/posts/">Posts</a></li>
+        <li><a href="/talks/">Talks</a></li>
+        <li><a href="/portfolio/">Portfolio</a></li>
+        <li><a href="/reading/">What am I reading?</a></li>
+      </ul>
+    </nav>
+  </header>
+    <h1 class="title">Portfolio</h1>
+      <p>Regardless of job title (software engineer, developer advocate,
+      technical writer, etc.), I’ve spent my entire career creating
+      content and tools to help developers make things.</p>
+      <p>While I have experience <a href="../talks/index.html">giving
+      talks</a> and creating video content, my preference has always
+      been for creating written content, especially tutorials and
+      API/SDK documentation. Written content is more maintainable,
+      flexible, and accessible than video, and frankly, more useful, in
+      my opinion.</p>
+      <p>This page lists some examples of written content that I’ve
+      worked on throughout the years.</p>
+      <h2 id="api-and-sdk-docs">API and SDK docs</h2>
+      <!-- ### Sentry -->
+      <p>I currently work at <a
+      href="https://sentry.io/welcome/">sentry.io</a> where I maintain
+      Sentry SDK docs in collaboration with the SDK developers. I also
+      maintain the <a
+      href="https://github.com/getsentry/sentry-docs/">docs site
+      itself</a> (a Gatsby project hosted on Vercel), and the API docs
+      in collaboration with product engineers.</p>
+      <p>Sentry is open source and part of my role also includes
+      empowering external contributors, both by working with them on
+      docs contributions, and by helping Sentry employees make <a
+      href="https://develop.sentry.dev/">internal documentation
+      public</a> so external contributors can contribute to Sentry SDKs
+      and product code. Additionally, since our docs site is open
+      source, you can see all my contributions to Sentry’s docs via the
+      <a
+      href="https://github.com/getsentry/sentry-docs/commits?author=shanamatthews">project’s
+      commit history</a>.</p>
+      <ul>
+      <li><p><a href="https://docs.sentry.io/platforms/">Sentry SDK
+      docs</a>. Sentry provides SDKs to add to your project to collect
+      error and performance data for more than 20 languages. Each SDK is
+      custom written to work best with its language and each SDK has
+      slightly different features and API surface. This gives the best
+      user experience, but requires more work to maintain accurate
+      documentation. I collaborate with 12 full-time SDK developers plus
+      additional contractors to keep our SDK docs up to date. I help
+      make sure docs are consistent between SDKs and adhere to our docs
+      best practices and internal style guide. I also collaborate on
+      bigger projects like <a
+      href="https://github.com/getsentry/sentry-docs/pull/8152">improving
+      our information architecture</a> and coordinating across the
+      organization to ensure <a
+      href="https://github.com/getsentry/sentry-docs/pull/6808">new
+      SDKs</a> ship with docs included.</p></li>
+      <li><p><a href="https://docs.sentry.io/api/">Sentry API docs</a>.
+      Sentry provides a REST API to access the Sentry platform
+      programmatically. Our API docs are created using OpenAPI 3 and
+      custom code to generate pages in Gatsby from the OpenAPI spec.
+      Older endpoints require you to manually edit the OpenAPI spec, but
+      newer endpoints use <a
+      href="https://drf-spectacular.readthedocs.io/en/latest/"><code>drf-spectacular</code></a>
+      to automatically create OpenAPI spec entries from the code. I
+      collaborate with product engineers working to publish new
+      endpoints to ensure they also publish API docs that follow our
+      best practices and style guide. This involved authoring
+      documentation for Sentry engineers about <a
+      href="https://develop.sentry.dev/api/public/">how to publish new
+      endpoints</a>. Since Sentry is fully open-source, Sentry
+      encourages employees to make internal docs public whenever
+      possible. I also worked closely with the lead engineer for
+      Sentry’s APIs to rewrite our internal docs on creating creating
+      new APIs and make the <a
+      href="https://develop.sentry.dev/api/">new docs public</a>. This
+      enables external contributors to help author APIs.</p></li>
+      </ul>
+      <!-- ### Coinbase -->
+      <h2 id="tutorials">Tutorials</h2>
+      <!-- ### Sentry -->
+      <ul>
+      <li><p><a
+      href="https://docs.sentry.io/product/sentry-basics/integrate-frontend/">Frontend
+      Error Monitoring Tutorial</a>. I created a new <a
+      href="https://github.com/getsentry/frontend-tutorial">React sample
+      app</a> for this tutorial, that uses Webpack without
+      <code>create-react-app</code> to more accurately represent user
+      experience. I also rewrote the tutorial content to demonstrate
+      Sentry best practices and highlight new features, as well as
+      follow docs best practices and style guide.</p></li>
+      <li><p><a
+      href="https://docs.sentry.io/api/guides/create-auth-token/">Create
+      a Sentry Authentication Token</a> and <a
+      href="https://docs.sentry.io/api/guides/teams-tutorial/">Create
+      and List Teams with the Sentry API</a>. Authored two new
+      beginner-friendly tutorials to help users authenticate and get
+      started with Sentry’s APIs. The prerequisites for authenticating
+      with Sentry’s APIs is nonstandard and I created these tutorials to
+      mitigate user confusion as engineering work happened to make
+      authentication easier. <!--
+      ### Coinbase
+
+      ### Microsoft
+
+      ## Other docs-related projects
+
+      ### Algolia --></p></li>
+      </ul>
+    </body>
+<footer>
+  <p>Powered by <a href="https://github.com/shanamatthews/static-site-generator">Shana's custom static site
+      generator</a> (aka literally just one Bash script)</insert>
+  </p>
+  <p>Theme inspired by ✨<a href="https://sailorhg.github.io/fairyfloss/">sailorhg's Fairyfloss</a> ✨</p>
+  <a rel="me" href="https://hachyderm.io/@shanacodes"></a>
+</footer>
+<script src="/assets/main.js"></script>
+
+</html>

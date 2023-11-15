@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Shana" />
       <meta name="date" content="2023-04-03" />
-    <meta name="keywords" content="no, nothing" />
+    <meta name="keywords" content="false, nothing" />
   <link rel="stylesheet" href=../assets/css/styles.css>
   <title>week-notes-4-3-23</title>
   <link rel="shortcut icon" type="image/jpg"
@@ -19,9 +19,9 @@
     <nav class="header-links">
       <ul>
         <li><a href="/about/">About</a></li>
-        <!-- <li><a href="/contact/">Contact</a></li> -->
         <li><a href="/posts/">Posts</a></li>
         <li><a href="/talks/">Talks</a></li>
+        <li><a href="/portfolio/">Portfolio</a></li>
         <li><a href="/reading/">What am I reading?</a></li>
       </ul>
     </nav>
@@ -30,37 +30,104 @@
       <p class="date">2023-04-03</p>
     <h2 id="producing">Producing</h2>
     <h3 id="work">Work</h3>
-    <p>Today was my first “official” day as a Documentation Engineer at Sentry! I’m currently working on wrapping my head around our very old Gatsby docs site that we host on Vercel and familiarizing myself with the (long) list of complaints about it.</p>
-    <p>My very first project on the team was to implement a PR template for the repo with “pre-merge checklist” to try to convince employees to get a review from our technical writers before merging their docs PRs. The team is hesitant to gate PRs on our review more formally, but I think we’re going to need to. ~60% of employees are just deleting the checklist when they create the PR :/</p>
+    <p>Today was my first “official” day as a Documentation Engineer at
+    Sentry! I’m currently working on wrapping my head around our very
+    old Gatsby docs site that we host on Vercel and familiarizing myself
+    with the (long) list of complaints about it.</p>
+    <p>My very first project on the team was to implement a PR template
+    for the repo with “pre-merge checklist” to try to convince employees
+    to get a review from our technical writers before merging their docs
+    PRs. The team is hesitant to gate PRs on our review more formally,
+    but I think we’re going to need to. ~60% of employees are just
+    deleting the checklist when they create the PR :/</p>
     <h3 id="life">Life</h3>
-    <p>I perform with the <a href="https://seattlelaborchorus.org/">Seattle Labor Chorus</a> and we had our annual concert this weekend on April 1st! It was a blast, and I got to sing a duet with a fellow chorus member, performing Joe Jencks’ <a href="https://www.youtube.com/watch?v=A69eP-kiARk&amp;ab_channel=JoeJencks-Topic">Rise As One</a>. YouTube link to the <a href="https://www.youtube.com/watch?v=xiGbI0NkV2M">concert recording is here!</a> I remembered!</p>
+    <p>I perform with the <a
+    href="https://seattlelaborchorus.org/">Seattle Labor Chorus</a> and
+    we had our annual concert this weekend on April 1st! It was a blast,
+    and I got to sing a duet with a fellow chorus member, performing Joe
+    Jencks’ <a
+    href="https://www.youtube.com/watch?v=A69eP-kiARk&amp;ab_channel=JoeJencks-Topic">Rise
+    As One</a>. YouTube link to the <a
+    href="https://www.youtube.com/watch?v=xiGbI0NkV2M">concert recording
+    is here!</a> I remembered!</p>
     <h3 id="experiments">Experiments</h3>
     <h4 id="this-website">This website</h4>
-    <p>My posts folder is getting really messy, so I was trying to edit the bash script so it could accept nested post folders. I spent longer than 30 min on it without success, which I think means its time to move on to rewriting this thing in a more sane language, like Go… I also recently noticed that <a href="https://brandur.org/">Brandur’s blog</a> is created with <a href="https://github.com/brandur/sorg">his own SSG written in Go</a>… More to come soon?</p>
+    <p>My posts folder is getting really messy, so I was trying to edit
+    the bash script so it could accept nested post folders. I spent
+    longer than 30 min on it without success, which I think means its
+    time to move on to rewriting this thing in a more sane language,
+    like Go… I also recently noticed that <a
+    href="https://brandur.org/">Brandur’s blog</a> is created with <a
+    href="https://github.com/brandur/sorg">his own SSG written in
+    Go</a>… More to come soon?</p>
     <h2 id="consuming">Consuming</h2>
     <h3 id="nature">Nature</h3>
-    <p>I live about 5 minutes away from a local park with a pond which I rarely go to, which is such a waste. There are a lot of things I don’t love about my house, but one of them was how much it feels like it’s in nature, despite being very much in town.</p>
-    <p>Inspired by the Huberman Lab podcast, I’ve been trying to take short morning walks to that pond and just sit and absorb morning sunlight for a while. It turns out, I love it! Who would have guessed. Here is a suspiciously friendly duck that was probably looking for some food:</p>
+    <p>I live about 5 minutes away from a local park with a pond which I
+    rarely go to, which is such a waste. There are a lot of things I
+    don’t love about my house, but one of them was how much it feels
+    like it’s in nature, despite being very much in town.</p>
+    <p>Inspired by the Huberman Lab podcast, I’ve been trying to take
+    short morning walks to that pond and just sit and absorb morning
+    sunlight for a while. It turns out, I love it! Who would have
+    guessed. Here is a suspiciously friendly duck that was probably
+    looking for some food:</p>
     <figure>
-    <img src="../images/pond.jpg" alt="A very friendly duck" /><figcaption aria-hidden="true">A very friendly duck</figcaption>
+    <img src="../images/pond.jpg" alt="A very friendly duck" />
+    <figcaption aria-hidden="true">A very friendly duck</figcaption>
     </figure>
     <h3 id="articles-i-liked-this-week">Articles I liked this week</h3>
     <ul>
-    <li><p><a href="https://idratherbewriting.com/trends/trends-to-follow-or-forget-language-generative-ai.html">The influence of language-generative AI tools on tech comm</a>. This one made me think. There have been so many terrible ChatGPT takes recently and I’ve been feeling sick of reading about it, but this one was short and reasonable. I’m extremely interested in what we’ll be able to do with automatically generating documentation directly from source code. Or even using AI to generate OpenAPI specs from source. Basically how to build a pipeline from code -&gt; docs using AI tools.</p></li>
-    <li><p><a href="https://aisnakeoil.substack.com/p/gpt-4-and-professional-benchmarks">GPT-4 and professional benchmarks</a>. This was an “AI pessimist” take. Here’s a very very (very) INTERESTING quote:</p>
+    <li><p><a
+    href="https://idratherbewriting.com/trends/trends-to-follow-or-forget-language-generative-ai.html">The
+    influence of language-generative AI tools on tech comm</a>. This one
+    made me think. There have been so many terrible ChatGPT takes
+    recently and I’ve been feeling sick of reading about it, but this
+    one was short and reasonable. I’m extremely interested in what we’ll
+    be able to do with automatically generating documentation directly
+    from source code. Or even using AI to generate OpenAPI specs from
+    source. Basically how to build a pipeline from code -&gt; docs using
+    AI tools.</p></li>
+    <li><p><a
+    href="https://aisnakeoil.substack.com/p/gpt-4-and-professional-benchmarks">GPT-4
+    and professional benchmarks</a>. This was an “AI pessimist” take.
+    Here’s a very very (very) INTERESTING quote:</p>
     <blockquote>
-    <p>To benchmark GPT-4’s coding ability, OpenAI evaluated it on problems from Codeforces, a website that hosts coding competitions. Surprisingly, Horace He pointed out that GPT-4 solved 10/10 pre-2021 problems and 0/10 recent problems in the easy category. The training data cutoff for GPT-4 is September 2021. This strongly suggests that the model is able to memorize solutions from its training set — or at least partly memorize them, enough that it can fill in what it can’t recall.</p>
-    <p>As further evidence for this hypothesis, we tested it on Codeforces problems from different times in 2021. We found that it could regularly solve problems in the easy category before September 5, but none of the problems after September 12.</p>
-    <p>In fact, we can definitively show that it has memorized problems in its training set: when prompted with the title of a Codeforces problem, GPT-4 includes a link to the exact contest where the problem appears (and the round number is almost correct: it is off by one). Note that GPT-4 cannot access the Internet, so memorization is the only explanation.</p>
+    <p>To benchmark GPT-4’s coding ability, OpenAI evaluated it on
+    problems from Codeforces, a website that hosts coding competitions.
+    Surprisingly, Horace He pointed out that GPT-4 solved 10/10 pre-2021
+    problems and 0/10 recent problems in the easy category. The training
+    data cutoff for GPT-4 is September 2021. This strongly suggests that
+    the model is able to memorize solutions from its training set — or
+    at least partly memorize them, enough that it can fill in what it
+    can’t recall.</p>
+    <p>As further evidence for this hypothesis, we tested it on
+    Codeforces problems from different times in 2021. We found that it
+    could regularly solve problems in the easy category before September
+    5, but none of the problems after September 12.</p>
+    <p>In fact, we can definitively show that it has memorized problems
+    in its training set: when prompted with the title of a Codeforces
+    problem, GPT-4 includes a link to the exact contest where the
+    problem appears (and the round number is almost correct: it is off
+    by one). Note that GPT-4 cannot access the Internet, so memorization
+    is the only explanation.</p>
     </blockquote></li>
     </ul>
     <h3 id="books">Books</h3>
-    <p>Wow, not a lot of progress on the books front. Life has been happening!</p>
+    <p>Wow, not a lot of progress on the books front. Life has been
+    happening!</p>
     <ul>
-    <li>[in-progress] <a href="https://openlibrary.org/works/OL20811242W/Never_Bet_Against_Occam">Never Bet Against Occam</a>. Reading this to learn more about mastocytosis :(</li>
-    <li>[in-progress] <a href="https://openlibrary.org/works/OL19718843W/My_grandmother%27s_hands?edition=ia%3Amygrandmothersha0000mena">My Grandmother’s Hands</a></li>
-    <li>[paused] <a href="https://openlibrary.org/works/OL29240850W/Spare">Spare</a></li>
-    <li>[paused] <a href="https://openlibrary.org/works/OL25758323W/Unsettled_Ground">Unsettled Ground</a></li>
+    <li>[in-progress] <a
+    href="https://openlibrary.org/works/OL20811242W/Never_Bet_Against_Occam">Never
+    Bet Against Occam</a>. Reading this to learn more about mastocytosis
+    :(</li>
+    <li>[in-progress] <a
+    href="https://openlibrary.org/works/OL19718843W/My_grandmother%27s_hands?edition=ia%3Amygrandmothersha0000mena">My
+    Grandmother’s Hands</a></li>
+    <li>[paused] <a
+    href="https://openlibrary.org/works/OL29240850W/Spare">Spare</a></li>
+    <li>[paused] <a
+    href="https://openlibrary.org/works/OL25758323W/Unsettled_Ground">Unsettled
+    Ground</a></li>
     </ul>
     </body>
 <footer>

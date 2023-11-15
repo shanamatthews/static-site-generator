@@ -18,9 +18,9 @@
     <nav class="header-links">
       <ul>
         <li><a href="/about/">About</a></li>
-        <!-- <li><a href="/contact/">Contact</a></li> -->
         <li><a href="/posts/">Posts</a></li>
         <li><a href="/talks/">Talks</a></li>
+        <li><a href="/portfolio/">Portfolio</a></li>
         <li><a href="/reading/">What am I reading?</a></li>
       </ul>
     </nav>
@@ -29,30 +29,72 @@
       <h2 id="featured-post">Featured post:</h2>
     <h3 class="homepage-post-title"><a href=/posts/chatgpt-site-improvements.html>chatgpt-site-improvements</a></h3>
     <p class="date">2023-02-27</p>
-    <p>I’m really proud of myself for creating this site with my own static site generator <a href="https://shana.codes/posts/static-site-generator-with-bash.html">I wrote with just Bash scripting</a>. I think it’s sick and it aligns with my stance on not needing a framework or even a “real” programming language to do every single thing.</p>
-    <p>However the reality is… I’m painfully mediocre at Bash scripting. I don’t use Bash regularly at work or even in personal projects, so whenever I want to make tweaks to this site, I feel rusty and it takes ages to make even small improvements.</p>
-    <p>I’ve wanted to add a tiny new “feature” allowing me to have draft posts in the site without publishing them (a.k.a. generating an HTML page for them), but had been putting it off because I knew I’d have to wrap my brain around my messy Bash scripts again.</p>
-    <p>That’s where ChatGPT comes in! I’d read some really promising things about folks using ChatGPT to help them with simple scripting and I thought my build script for this site was simple enough that ChatGPT might be able to help add this draft posts feature.</p>
+    <p>I’m really proud of myself for creating this site with my own static
+    site generator <a
+    href="https://shana.codes/posts/static-site-generator-with-bash.html">I
+    wrote with just Bash scripting</a>. I think it’s sick and it aligns with
+    my stance on not needing a framework or even a “real” programming
+    language to do every single thing.</p>
+    <p>However the reality is… I’m painfully mediocre at Bash scripting. I
+    don’t use Bash regularly at work or even in personal projects, so
+    whenever I want to make tweaks to this site, I feel rusty and it takes
+    ages to make even small improvements.</p>
+    <p>I’ve wanted to add a tiny new “feature” allowing me to have draft
+    posts in the site without publishing them (a.k.a. generating an HTML
+    page for them), but had been putting it off because I knew I’d have to
+    wrap my brain around my messy Bash scripts again.</p>
+    <p>That’s where ChatGPT comes in! I’d read some really promising things
+    about folks using ChatGPT to help them with simple scripting and I
+    thought my build script for this site was simple enough that ChatGPT
+    might be able to help add this draft posts feature.</p>
     <p>⚠️ Spoiler alert: It was not.</p>
     <h2 id="the-challenge">The challenge</h2>
-    <p>I first tested out ChatGPT by feeding it my <a href="https://github.com/shanamatthews/static-site-generator/blob/main/build"><code>build</code> script</a> and asking what it did. It was very accurate! Impressive!</p>
+    <p>I first tested out ChatGPT by feeding it my <a
+    href="https://github.com/shanamatthews/static-site-generator/blob/main/build"><code>build</code>
+    script</a> and asking what it did. It was very accurate! Impressive!</p>
     <blockquote>
-    <p>This script is used to build a static website. Here’s a step-by-step explanation of what it does:</p>
-    <p>The first line (#!/usr/bin/env bash) specifies that the script should be run using the bash shell.</p>
-    <p>The second line (shopt -s globstar) enables the globstar option, which allows the use of double asterisks (**) as a recursive directory wildcard.</p>
-    <p>The script declares an array called unsorted_posts to hold the file names of all the Markdown files in the posts directory (excluding the index.md file) sorted by date in descending order.</p>
-    <p>The for loop iterates over each file in the posts directory (excluding the index.md file), extracts the date from the front matter of each file using sed, and constructs a new file name by prefixing the date to the original file name. This new file name is then added to the unsorted_posts array.</p>
-    <p>The script declares another array called sorted_posts and sets its value to the sorted version of unsorted_posts.</p>
-    <p>The script declares another array called latest_posts and fills it with a list of variables to be passed to the pandoc command when building the posts/index.md page.</p>
-    <p>The script extracts the latest post from sorted_posts and generates the HTML code for the latest post preview using pandoc.</p>
-    <p>The script iterates over each Markdown file in the current directory and its subdirectories. For each file, it extracts the file name and directory, determines whether it is the homepage, posts page, or a regular page, and generates the corresponding HTML code using pandoc. The assets-folder variable is set to assets for pages in the current directory, and ../assets for pages in subdirectories.</p>
-    <p>The generated HTML files are stored in the same directories as their corresponding Markdown files.</p>
-    <p>Overall, this script generates a static website from Markdown files by converting them to HTML using pandoc and a custom HTML template. The homepage and posts page are generated separately from the other pages, and the latest post preview is included on the posts page.</p>
+    <p>This script is used to build a static website. Here’s a step-by-step
+    explanation of what it does:</p>
+    <p>The first line (#!/usr/bin/env bash) specifies that the script should
+    be run using the bash shell.</p>
+    <p>The second line (shopt -s globstar) enables the globstar option,
+    which allows the use of double asterisks (**) as a recursive directory
+    wildcard.</p>
+    <p>The script declares an array called unsorted_posts to hold the file
+    names of all the Markdown files in the posts directory (excluding the
+    index.md file) sorted by date in descending order.</p>
+    <p>The for loop iterates over each file in the posts directory
+    (excluding the index.md file), extracts the date from the front matter
+    of each file using sed, and constructs a new file name by prefixing the
+    date to the original file name. This new file name is then added to the
+    unsorted_posts array.</p>
+    <p>The script declares another array called sorted_posts and sets its
+    value to the sorted version of unsorted_posts.</p>
+    <p>The script declares another array called latest_posts and fills it
+    with a list of variables to be passed to the pandoc command when
+    building the posts/index.md page.</p>
+    <p>The script extracts the latest post from sorted_posts and generates
+    the HTML code for the latest post preview using pandoc.</p>
+    <p>The script iterates over each Markdown file in the current directory
+    and its subdirectories. For each file, it extracts the file name and
+    directory, determines whether it is the homepage, posts page, or a
+    regular page, and generates the corresponding HTML code using pandoc.
+    The assets-folder variable is set to assets for pages in the current
+    directory, and ../assets for pages in subdirectories.</p>
+    <p>The generated HTML files are stored in the same directories as their
+    corresponding Markdown files.</p>
+    <p>Overall, this script generates a static website from Markdown files
+    by converting them to HTML using pandoc and a custom HTML template. The
+    homepage and posts page are generated separately from the other pages,
+    and the latest post preview is included on the posts page.</p>
     </blockquote>
-    <p>Feeling confident about ChatGPT’s abilities, I asked it how I could edit the script such that if a post has <code>draft: true</code> in the frontmatter, the script won’t generate an HTML page for it.</p>
+    <p>Feeling confident about ChatGPT’s abilities, I asked it how I could
+    edit the script such that if a post has <code>draft: true</code> in the
+    frontmatter, the script won’t generate an HTML page for it.</p>
     <p>Here was it’s response:</p>
     <blockquote>
-    <div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
+    <div class="sourceCode" id="cb1"><pre
+    class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
     <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
     <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">shopt</span> <span class="at">-s</span> globstar</span>
     <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -74,10 +116,20 @@
     <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ex">...</span></span>
     <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>unmodified <span class="ex">code</span><span class="op">&gt;</span></span></code></pre></div>
     </blockquote>
-    <p>At first glance, this looked about right! I didn’t like that it wasn’t actually checking the frontmatter, as instructed. By using <code>grep</code> in this way, the script would skip the file if “draft: true” appeared anywhere in the post, not just in the frontmatter. It’s not likely that I’d write that phrase <em>outside</em> of the frontmatter, but I would prefer not to run into that weird and confusing bug later.</p>
-    <p>Optimistic at this point, I fiddled with ChatGPT a little more until I got it to output a version that checked the frontmatter specifically, and also grabbed the date from the frontmatter. This was definitely an improvement!</p>
+    <p>At first glance, this looked about right! I didn’t like that it
+    wasn’t actually checking the frontmatter, as instructed. By using
+    <code>grep</code> in this way, the script would skip the file if “draft:
+    true” appeared anywhere in the post, not just in the frontmatter. It’s
+    not likely that I’d write that phrase <em>outside</em> of the
+    frontmatter, but I would prefer not to run into that weird and confusing
+    bug later.</p>
+    <p>Optimistic at this point, I fiddled with ChatGPT a little more until
+    I got it to output a version that checked the frontmatter specifically,
+    and also grabbed the date from the frontmatter. This was definitely an
+    improvement!</p>
     <blockquote>
-    <div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
+    <div class="sourceCode" id="cb2"><pre
+    class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
     <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
     <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">shopt</span> <span class="at">-s</span> globstar</span>
     <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -102,19 +154,57 @@
     <span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>unmodified <span class="ex">code</span><span class="op">&gt;</span></span></code></pre></div>
     </blockquote>
     <h2 id="the-letdown">The letdown</h2>
-    <p>Unfortunately, upon testing out the script, I realized that ChatGPT was actually very wrong. The first for loop in the script where ChatGPT made changes create an array of posts to be sorted by date which is used to embed the the latest post preview on the homepage.</p>
-    <p>ChatGPT seemed to “know” this in its description of what the script does. Remember this paragraph?</p>
+    <p>Unfortunately, upon testing out the script, I realized that ChatGPT
+    was actually very wrong. The first for loop in the script where ChatGPT
+    made changes create an array of posts to be sorted by date which is used
+    to embed the the latest post preview on the homepage.</p>
+    <p>ChatGPT seemed to “know” this in its description of what the script
+    does. Remember this paragraph?</p>
     <blockquote>
-    <p>The script iterates over each Markdown file in the current directory and its subdirectories. For each file, it extracts the file name and directory, determines whether it is the homepage, posts page, or a regular page, and generates the corresponding HTML code using pandoc. The assets-folder variable is set to assets for pages in the current directory, and ../assets for pages in subdirectories.</p>
+    <p>The script iterates over each Markdown file in the current directory
+    and its subdirectories. For each file, it extracts the file name and
+    directory, determines whether it is the homepage, posts page, or a
+    regular page, and generates the corresponding HTML code using pandoc.
+    The assets-folder variable is set to assets for pages in the current
+    directory, and ../assets for pages in subdirectories.</p>
     </blockquote>
-    <p>But when it came to editing the Bash script, ChatGPT “forgot” and fixated on the first for loop. Excluding drafts from the first for loop meant that draft posts wouldn’t be candidates for being the preview post on the homepage and wouldn’t be added to the my list of posts on the <a href="https://shana.codes/posts/">posts index page</a> (yay, good) but they were still <strong>built into HTML pages and published</strong> (boo, bad).</p>
-    <p>This mistake feels odd, because I specifically asked that we <strong>don’t generate an HTML file for draft posts</strong>, but I didn’t mention anything about listing draft posts on the posts index page.</p>
-    <p>As a person who writes code, I’m used to feeling like computers are <a href="https://en.wikipedia.org/wiki/Malicious_compliance">maliciously compliant</a>. The code I write does exactly what I wrote it to do, regardless of what I actually wanted. Here, it felt like ChatGPT understood what I <em>wanted</em>, but didn’t do what I told it to do.</p>
-    <p>Ok, no more anthropomorphizing ChatGPT. It’s just a <a href="https://writings.stephenwolfram.com/2023/02/what-is-chatgpt-doing-and-why-does-it-work/">dumb LLM probabilistically spitting out words at me</a>.</p>
-    <p>I came away from this feeling disappointed and like my Bash script needed a little refactoring to be easier for future me and for LLMs to understand.</p>
-    <p>Did I do that? No 😂 However, I <strong>did</strong> <a href="https://github.com/shanamatthews/static-site-generator/commit/c7a1b9b4840b24448db21cad44a452059e09e435">add the drafts post feature</a> by keeping the code to skip posts in the first for loop and building posts within that first for loop instead of the second.</p>
+    <p>But when it came to editing the Bash script, ChatGPT “forgot” and
+    fixated on the first for loop. Excluding drafts from the first for loop
+    meant that draft posts wouldn’t be candidates for being the preview post
+    on the homepage and wouldn’t be added to the my list of posts on the <a
+    href="https://shana.codes/posts/">posts index page</a> (yay, good) but
+    they were still <strong>built into HTML pages and published</strong>
+    (boo, bad).</p>
+    <p>This mistake feels odd, because I specifically asked that we
+    <strong>don’t generate an HTML file for draft posts</strong>, but I
+    didn’t mention anything about listing draft posts on the posts index
+    page.</p>
+    <p>As a person who writes code, I’m used to feeling like computers are
+    <a href="https://en.wikipedia.org/wiki/Malicious_compliance">maliciously
+    compliant</a>. The code I write does exactly what I wrote it to do,
+    regardless of what I actually wanted. Here, it felt like ChatGPT
+    understood what I <em>wanted</em>, but didn’t do what I told it to
+    do.</p>
+    <p>Ok, no more anthropomorphizing ChatGPT. It’s just a <a
+    href="https://writings.stephenwolfram.com/2023/02/what-is-chatgpt-doing-and-why-does-it-work/">dumb
+    LLM probabilistically spitting out words at me</a>.</p>
+    <p>I came away from this feeling disappointed and like my Bash script
+    needed a little refactoring to be easier for future me and for LLMs to
+    understand.</p>
+    <p>Did I do that? No 😂 However, I <strong>did</strong> <a
+    href="https://github.com/shanamatthews/static-site-generator/commit/c7a1b9b4840b24448db21cad44a452059e09e435">add
+    the drafts post feature</a> by keeping the code to skip posts in the
+    first for loop and building posts within that first for loop instead of
+    the second.</p>
     <h2 id="small-redemption">Small redemption</h2>
-    <p>After my failure using ChatGPT for this, I still wanted to try getting ChatGPT to do something useful. I ended up having it edit my <a href="https://github.com/shanamatthews/static-site-generator/blob/main/build"><code>build</code> script</a> and my <a href="https://github.com/shanamatthews/static-site-generator/blob/main/create-post"><code>create-post</code> script</a> to print out error messages when something goes wrong. I’d been too lazy to do this and ChatGPT did a good job on this super simple task.</p>
+    <p>After my failure using ChatGPT for this, I still wanted to try
+    getting ChatGPT to do something useful. I ended up having it edit my <a
+    href="https://github.com/shanamatthews/static-site-generator/blob/main/build"><code>build</code>
+    script</a> and my <a
+    href="https://github.com/shanamatthews/static-site-generator/blob/main/create-post"><code>create-post</code>
+    script</a> to print out error messages when something goes wrong. I’d
+    been too lazy to do this and ChatGPT did a good job on this super simple
+    task.</p>
     </body>
 <footer>
   <p>Powered by <a href="https://github.com/shanamatthews/static-site-generator">Shana's custom static site
