@@ -26,10 +26,10 @@
     </nav>
   </header>
     <h1 class="title">What am I reading?</h1>
-      <div id="observablehq-52db9cf9">
-      <div class="observablehq-books2">
-
-      </div>
+      <script src="//d3js.org/d3.v4.min.js"></script>
+      <script src = "./get-book-data.js"></script>
+      <!-- <div id="observablehq-52db9cf9">
+        <div class="observablehq-books2"></div>
       </div>
       <script type="module">
         import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
@@ -37,7 +37,7 @@
         (new Runtime).module(define, name => {
           if (name === "books2") return Inspector.into("#observablehq-52db9cf9 .observablehq-books2")();
         });
-      </script>
+      </script> -->
       <p>I made this with D3 on <a
       href="https://observablehq.com/">Observable</a>. I’ve written a
       couple posts about how I made it:</p>
@@ -61,5 +61,4 @@
   <a rel="me" href="https://hachyderm.io/@shanacodes"></a>
 </footer>
 <script src="/assets/main.js"></script>
-
 </html>

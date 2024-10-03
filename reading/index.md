@@ -4,7 +4,12 @@ author: 'Shana'
 keywords: [reading]
 ---
 
-<div id="observablehq-52db9cf9">
+<script src="//d3js.org/d3.v4.min.js"></script>
+<script src = "./get-book-data.js"></script>
+
+
+
+<!-- <div id="observablehq-52db9cf9">
   <div class="observablehq-books2"></div>
 </div>
 <script type="module">
@@ -13,7 +18,7 @@ keywords: [reading]
   (new Runtime).module(define, name => {
     if (name === "books2") return Inspector.into("#observablehq-52db9cf9 .observablehq-books2")();
   });
-</script>
+</script> -->
 
 I made this with D3 on [Observable](https://observablehq.com/). I've written a couple posts about how I made it:
 

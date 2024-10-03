@@ -101,4 +101,3 @@ for md in **/*.md; do
     --variable assets-folder="${assets_folder}" || \
     echo "Error: failed to build ${md}"
 done
-
